@@ -152,7 +152,7 @@
             &mouseless &kp N       &kp R        &kp T        &kp S     &kp G    &none  &none    &kp Y       &kp H        &kp A        &kp E        &kp I     &none
         //  ┌─extra─┐                                                                                                                                      ┌─extra─┐
             &none     &kp Q        &kp X        &kp M        &kp C     &kp V                    &kp K       &kp P        &comma_qmark &dot_excl    &slash_bslash &none
-                                          &kp RET  &ext_mod EXT MOD  &kp LGUI                   &lt_thumb SYM BSPC  &lt_thumb NUM SPACE  &kp LSHFT
+                                          &kp ESC  &ext_mod EXT MOD  &kp RET                    &lt_thumb SYM BSPC  &lt_thumb NUM SPACE  &kp LSHFT
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
         };
@@ -170,7 +170,7 @@
         ext_layer {
             label = "EXT";
             bindings = <
-            &none  &kp ESC      &none        &none        &none        &none         &trans &trans &none        &kp HOME     &kp END      &none        &kp PG_UP    &none
+            &none  &none        &none        &none        &none        &none         &trans &trans &none        &kp HOME     &kp END      &none        &kp PG_UP    &none
             &none  &kp LSHFT    &kp LALT     &kp LCTRL    &kp LGUI     &none         &trans &trans &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none        &none
             &none  &none        &none        &none        &none        &none                      &none        &kp TAB      &kp DEL      &none        &kp PG_DN    &none
                                              &trans       &trans       &trans                      &trans       &kp SPACE    &trans

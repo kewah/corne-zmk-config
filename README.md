@@ -57,7 +57,7 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-| `RET`      | `MOD/EXT`   | `CMD`      | `BSP/SYM`   | `SPC/NUM`    | `SHIFT`     |
+| `ESC`      | `MOD/EXT`   | `RET`      | `BSP/SYM`   | `SPC/NUM`    | `SHIFT`     |
 
 Outer keys
 
@@ -89,7 +89,7 @@ Left half
 
 | Row    | Col 1   | Col 2 | Col 3  | Col 4 | Col 5 |
 | ------ | ------- | ----- | ------ | ----- | ----- |
-| Top    | `ESC`   |       |        |       |       |
+| Top    |         |       |        |       |       |
 | Home   | `SHIFT` | `ALT` | `CTRL` | `CMD` |       |
 | Bottom |         |       |        |       |       |
 
