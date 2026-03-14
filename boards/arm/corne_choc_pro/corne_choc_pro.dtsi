@@ -6,7 +6,9 @@
 
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
+#include <common/nordic/nrf52840_uf2_boot_mode.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <zephyr/dt-bindings/regulator/nrf5x.h>
 
 #include "corne_choc_pro-layouts.dtsi"
 
@@ -89,12 +91,24 @@
     };
 };
 
+&gpiote {
+    status = "okay";
+};
+
 &gpio0 {
     status = "okay";
 };
 
 &gpio1 {
     status = "okay";
+};
+
+&uicr {
+    nfct-pins-as-gpios;
+};
+
+&reg1 {
+    regulator-initial-mode = <NRF5X_REG_MODE_DCDC>;
 };
 
 zephyr_udc0: &usbd {
