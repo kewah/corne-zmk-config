@@ -1,117 +1,258 @@
-# ZMK Config
+# Corne Choc Pro ZMK Config
 
-Personal ZMK firmware configuration for Corne split keyboard.
+Personal ZMK firmware configuration for the Corne Choc Pro split keyboard.
+
+Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://github.com/callum-oakley/qmk_firmware/tree/master/users/callum#readme).
+
+## Layout Notes
+
+- Base layer uses Graphite.
+- Only the inner 5 columns per half are used for alpha/layer keys. Extra keys are mapped as follows:
+  - Middle-row outer keys carry isolated outer key bindings (`mouseless`, `mo BT`).
+  - Top-row outer keys, bottom-row outer keys, and center keys are unused.
+- The layer diagrams omit unused extra keys unless one is used on that layer.
+- `Mod/Ext` is the main layer key:
+  - tap = sticky `MOD`
+  - hold = `EXT`
+- `MF` is a momentary thumb-chord layer:
+  - hold both middle thumbs = `MF`
+- `BT` is reached from `MF`:
+  - hold both middle thumbs for `MF`, then hold the right middle-row outer key for `BT`
+- `MOD` keys are hybrid modifiers:
+  - tap = sticky mod
+  - hold = normal held mod
+- `TMX` on `MOD` sends the tmux prefix (`Ctrl+Space`)
+- Encoders: top-left press = `MUTE`, top-right press = `PLAY/PAUSE`, rotation = volume/page/track/brightness
+
+## Layer Access
+
+| Layer | Access                        |
+| ----- | ----------------------------- |
+| MOD   | tap `Mod/Ext`                 |
+| EXT   | hold `Mod/Ext`                |
+| SYM   | hold `Bspc/Sym`               |
+| NUM   | hold `Space/Num`              |
+| MF    | hold both middle thumbs       |
+| BT    | hold right outer key on `MF`  |
+
+## BASE (Graphite)
+
+Left half
+
+| Row    | Col 1 | Col 2 | Col 3 | Col 4 | Col 5 |
+| ------ | ----- | ----- | ----- | ----- | ----- |
+| Top    | `B`   | `L`   | `D`   | `W`   | `Z`   |
+| Home   | `N`   | `R`   | `T`   | `S`   | `G`   |
+| Bottom | `Q`   | `X`   | `M`   | `C`   | `V`   |
+
+Right half
+
+| Row    | Col 1 | Col 2 | Col 3 | Col 4 | Col 5 |
+| ------ | ----- | ----- | ----- | ----- | ----- |
+| Top    | `'/"` | `F`   | `O`   | `U`   | `J`   |
+| Home   | `Y`   | `H`   | `A`   | `E`   | `I`   |
+| Bottom | `K`   | `P`   | `,/?` | `./!` | `/\`  |
+
+Thumbs
+
+| Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
+| ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
+| `RET`      | `MOD/EXT`   | `CMD`      | `BSP/SYM`   | `SPC/NUM`    | `SHIFT`     |
+
+Outer keys
+
+| Left outer | Right outer |
+| ---------- | ----------- |
+| `ML`       |             |
+
+## MOD (tap `Mod/Ext`)
+
+Left half
+
+| Row    | Col 1    | Col 2  | Col 3   | Col 4  | Col 5  |
+| ------ | -------- | ------ | ------- | ------ | ------ |
+| Top    |          |        |         |        |        |
+| Home   | `SHIFT*` | `ALT*` | `CTRL*` | `CMD*` | `HYP*` |
+| Bottom |          |        |         |        |        |
+
+Right half
+
+| Row    | Col 1 | Col 2 | Col 3 | Col 4 | Col 5 |
+| ------ | ----- | ----- | ----- | ----- | ----- |
+| Top    |       |       |       |       |       |
+| Home   |       | `TMX` |       |       |       |
+| Bottom |       |       |       |       |       |
+
+## EXT (hold `Mod/Ext`)
+
+Left half
+
+| Row    | Col 1   | Col 2 | Col 3  | Col 4 | Col 5 |
+| ------ | ------- | ----- | ------ | ----- | ----- |
+| Top    | `ESC`   |       |        |       |       |
+| Home   | `SHIFT` | `ALT` | `CTRL` | `CMD` |       |
+| Bottom |         |       |        |       |       |
+
+Right half
+
+| Row    | Col 1  | Col 2  | Col 3 | Col 4   | Col 5  |
+| ------ | ------ | ------ | ----- | ------- | ------ |
+| Top    |        | `HOME` | `END` |         | `PGUP` |
+| Home   | `LEFT` | `DOWN` | `UP`  | `RIGHT` |        |
+| Bottom |        | `TAB`  |       |         | `PGDN` |
+
+Thumbs
+
+| Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
+| ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
+|            | `EXT`       |            | `DEL`       | `SPC`        |             |
+
+## SYM (hold `Bspc/Sym`)
+
+Left half
+
+| Row    | Col 1   | Col 2 | Col 3  | Col 4 | Col 5 |
+| ------ | ------- | ----- | ------ | ----- | ----- |
+| Top    | `` ` `` | `~`   | `@`    | `#`   | `$`   |
+| Home   | `SHIFT` | `ALT` | `CTRL` | `CMD` | `HYP` |
+| Bottom | `^`     | `&`   | `!`    | `?`   | `\|`  |
+
+Right half
+
+| Row    | Col 1 | Col 2 | Col 3 | Col 4 | Col 5 |
+| ------ | ----- | ----- | ----- | ----- | ----- |
+| Top    |       | `/`   | `:`   | `;`   | `\`   |
+| Home   | `<`   | `(`   | `{`   | `[`   | `-`   |
+| Bottom | `>`   | `)`   | `}`   | `]`   | `_`   |
+
+Thumbs
+
+| Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
+| ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
+|            |             |            | `SYM`       |              |             |
+
+## NUM (hold `Space/Num`)
+
+Left half
+
+| Row    | Col 1 | Col 2 | Col 3 | Col 4 | Col 5 |
+| ------ | ----- | ----- | ----- | ----- | ----- |
+| Top    | `/`   | `7`   | `8`   | `9`   | `%`   |
+| Home   | `-`   | `1`   | `2`   | `3`   | `+`   |
+| Bottom | `x`   | `4`   | `5`   | `6`   | `*`   |
+
+Right half
+
+| Row    | Col 1 | Col 2 | Col 3  | Col 4 | Col 5   |
+| ------ | ----- | ----- | ------ | ----- | ------- |
+| Top    |       |       |        |       |         |
+| Home   | `HYP` | `CMD` | `CTRL` | `ALT` | `SHIFT` |
+| Bottom |       |       |        |       |         |
+
+Thumbs
+
+| Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
+| ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
+| `:`        | `0`         | `=`        |             | `NUM`        |             |
+
+## MF (hold both middle thumbs)
+
+Left half
+
+| Row    | Col 1  | Col 2        | Col 3  | Col 4  | Col 5 |
+| ------ | ------ | ------------ | ------ | ------ | ----- |
+| Top    |        | `MUTE`       | `VOL-` | `VOL+` |       |
+| Home   | `STOP` | `PLAY/PAUSE` | `PREV` | `NEXT` |       |
+| Bottom |        |              | `BRI-` | `BRI+` |       |
+
+Right half
+
+| Row    | Col 1 | Col 2 | Col 3 | Col 4 | Col 5 |
+| ------ | ----- | ----- | ----- | ----- | ----- |
+| Top    | `F12` | `F7`  | `F8`  | `F9`  |       |
+| Home   | `F10` | `F1`  | `F2`  | `F3`  |       |
+| Bottom | `F11` | `F4`  | `F5`  | `F6`  |       |
+
+Outer keys
+
+| Left outer | Right outer |
+| ---------- | ----------- |
+|            | `BT`        |
+
+## BT (hold the right outer key on `MF`)
+
+Left half
+
+| Row    | Col 1    | Col 2      | Col 3      | Col 4   | Col 5    |
+| ------ | -------- | ---------- | ---------- | ------- | -------- |
+| Top    | `BT CLR` | `OUT USB`  | `OUT BLE`  |         |          |
+| Home   | `BT PRV` | `BT 0`    | `BT 1`     | `BT 2`  | `BT NXT` |
+| Bottom |          | `BT 3`    | `BT 4`     |         |          |
+
+Right half
+
+| Row    | Col 1     | Col 2     | Col 3     | Col 4     | Col 5     |
+| ------ | --------- | --------- | --------- | --------- | --------- |
+| Top    | `RGB TOG` | `RGB HUI` | `RGB HUD` | `RGB BRI` | `RGB BRD` |
+| Home   | `RGB EFF` | `RGB SAI` | `RGB SAD` |           |           |
+| Bottom |           |           |           |           |           |
+
+## Legend
+
+- `X/Y` = tap `X`, hold `Y`
+- `SHIFT*`, `ALT*`, `CTRL*`, `CMD*`, `HYP*` on `MOD`:
+  - tap = sticky modifier
+  - hold = normal held modifier
+- `HYP` = Hyper (`Ctrl+Alt+Cmd+Shift`)
+- `TMX` = tmux prefix (`Ctrl+Space`)
+- `ML` = Mouseless trigger (`Hyper+Enter`)
+- `BT 0`–`BT 4` = directly select Bluetooth profile slots 0–4
+- `BT CLR` = clear Bluetooth bonds
+- `BT NXT` / `BT PRV` = switch Bluetooth profile
+- `OUT USB` / `OUT BLE` = explicitly select USB or Bluetooth output
+- `RGB TOG` = toggle RGB underglow on/off
+- `RGB HUI` / `RGB HUD` = increase/decrease hue
+- `RGB SAI` / `RGB SAD` = increase/decrease saturation
+- `RGB BRI` / `RGB BRD` = increase/decrease brightness
+- `RGB EFF` = cycle RGB effect
+- Middle-row left outer key = `ML` on `BASE`
+- Middle-row right outer key on `MF` momentarily opens `BT`
+- Top-row outer keys, bottom-row outer keys, and center keys are unused
+
+## Bluetooth Recovery
+
+If Bluetooth stops working after a firmware change:
+
+1. Forget the keyboard in macOS Bluetooth settings.
+2. Hold both middle thumbs to reach `MF`, then hold the right middle-row outer key to reach `BT`.
+3. Press `BT CLR`.
+4. Use `BT 0`–`BT 4` to jump directly to the host profile you want, or `BT NXT` / `BT PRV` to cycle.
+5. If the board is on the wrong output, press `OUT BLE` or `OUT USB`.
+6. If that still does not recover it, flash the `settings_reset` UF2 to both halves, then re-flash the normal left/right firmware.
+
+## Combos (EXT layer)
+
+| Keys | Output                 |
+| ---- | ---------------------- |
+| H+A  | Opt+Left (word left)   |
+| A+E  | Opt+Right (word right) |
+
+## Encoders
+
+| Encoder         | Press        | Rotate              |
+| --------------- | ------------ | ------------------- |
+| Top-left        | `MUTE`       | Volume down/up      |
+| Top-right       | `PLAY/PAUSE` | Page up/down        |
+| Bottom-left     | —            | Track prev/next     |
+| Bottom-right    | —            | Brightness down/up  |
 
 ## Build
 
-Push to GitHub → Actions tab → Download `firmware.zip`
-
-## Corne Layout
-
-### Layer 0: BASE (Graphite)
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│     │  B  │  L  │  D  │  W  │  Z  │       │  '  │  F  │  O  │  U  │  J  │ NAV │
-│     │     │     │     │     │     │       │  "  │     │     │     │     │ tog │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ ML  │  N  │  R  │  T  │  S  │  G  │       │  Y  │  H  │  A  │  E  │  I  │  -  │
-│     │ CTL │ ALT │ GUI │ SFT │     │       │     │ SFT │ GUI │ ALT │ CTL │  _  │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │  Q  │  X  │  M  │  C  │  V  │       │  K  │  P  │  ,  │  .  │  /  │     │
-│     │     │     │     │ HYP │     │       │     │ HYP │  ?  │  !  │  \  │     │
-└─────┴─────┴─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ ESC │ ENT │ TAB │       │BSPC │ SPC │^SPC │
-                  │MEDIA│ NAV │ SYM │       │ SYM │ NUM │ FUN │
-                  │  4  │  1  │  2  │       │  2  │  3  │  5  │
-                  └─────┴─────┴─────┘       └─────┴─────┴─────┘
-```
-
-**Home Row Mods:** Hold N/R/T/S or H/A/E/I for CTRL/ALT/GUI/SHIFT (left) or SHIFT/GUI/ALT/CTRL (right). All mods use left keycodes. Bilateral combinations prevent misfires.
-
-**Hyper Key:** Hold C or P for Hyper (⌃⇧⌥⌘) modifier chord. Bilateral like home row mods.
-
-**Custom Shifts:** `'`→`"`, `-`→`_`, `,`→`?`, `.`→`!`, `/`→`\`
-
-**Outer Column:** ML = Mouseless trigger (Hyper+Enter). BSPC = backspace (Shift+BSPC = Delete, quick-tap for fast repeat).
-
-**Word Nav Combos:** H+A = prev word (⌥←), A+E = next word (⌥→) on NAV layer only.
-
-### Layer 1: NAV
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│     │     │     │     │ ⌘`  │     │       │     │  }  │  {  │     │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │ CTL │ ⌘X  │ ⌘C  │ ⌘V  │     │       │  ←  │  ↓  │  ↑  │  →  │     │     │
-│     │     │ ALT │ GUI │ SFT │     │       │     │     │     │     │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │ RLD │ BCK │ FWD │     │       │HOME │PGDN │PGUP │ END │     │     │
-└─────┴─────┴─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │     │ ### │     │       │     │     │     │
-                  └─────┴─────┴─────┘       └─────┴─────┴─────┘
-```
-
-### Layer 2: SYM (TAB or BSPC)
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│     │  `  │  ~  │  <  │  >  │  |  │       │  '  │  {  │  }  │  $  │ =>  │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │  -  │  _  │  !  │  ?  │  &  │       │  #  │  (  │  )  │  :  │  ;  │     │
-│     │ CTL │ ALT │ GUI │ SFT │     │       │     │ SFT │ GUI │ ALT │ CTL │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │  ^  │  *  │  +  │  =  │  %  │       │  @  │  [  │  ]  │     │     │     │
-└─────┴─────┴─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │     │     │ ### │       │ ### │     │     │
-                  └─────┴─────┴─────┘       └─────┴─────┴─────┘
-```
-Either thumb (TAB or BSPC) activates. Home row symbols have HRM: hold for modifier, tap for symbol.
-
-**Arrow:** `=>` tap, `->` shift+tap.
-
-### Layer 3: NUM (SPC)
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│     │  /  │  7  │  8  │  9  │  *  │       │     │     │     │     │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │  -  │  1  │  2  │  3  │  +  │       │     │ SFT │ GUI │ ALT │ CTL │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │  .  │  4  │  5  │  6  │  %  │       │     │     │     │     │     │     │
-└─────┴─────┴─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │  :  │  0  │  =  │       │     │ ### │     │
-                  └─────┴─────┴─────┘       └─────┴─────┴─────┘
-```
-Hold SPC to access. Home row (1-2-3) optimized for frequent digits. DOT for decimal input. Right-hand home row provides modifiers for modified number input.
-
-### Layer 4: MEDIA (ESC)
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│     │     │     │VOL- │VOL+ │     │       │     │WH_D │WH_U │     │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │STOP │PLAY │PREV │NEXT │     │       │ M←  │ M↓  │ M↑  │ M→  │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │MUTE │BRI- │BRI+ │     │       │     │     │     │     │     │     │
-└─────┴─────┴─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │ ### │     │     │       │BTN2 │BTN1 │BTN3 │
-                  └─────┴─────┴─────┘       └─────┴─────┴─────┘
-```
-Hold ESC to access. Left: media controls (STOP/PLAY/PREV/NEXT), volume, brightness, mute. Right: mouse movement (YHAE home row), scroll (F/O), buttons on thumbs (L/M/R click).
-
-### Layer 5: FUN (^SPC)
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┐       ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│     │ F12 │ F7  │ F8  │ F9  │     │       │ TOG │ HUI │ HUD │ BRI │ BRD │ EFF │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │ F10 │ F1  │ F2  │ F3  │     │       │     │     │     │     │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │ F11 │ F4  │ F5  │ F6  │     │       │BTCLR│ BT0 │ BT1 │ BT2 │ BT3 │ BT4 │
-└─────┴─────┴─────┼─────┼─────┼─────┤       ├─────┼─────┼─────┼─────┴─────┴─────┘
-                  │     │     │     │       │     │     │ ### │
-                  └─────┴─────┴─────┘       └─────┴─────┴─────┘
-```
-Hold ^SPC to access. F-keys mirror NUM layer positions. Right side: RGB controls (TOG/HUI/HUD/BRI/BRD/EFF) and Bluetooth profile selection (BT0-4, BTCLR).
+Push to GitHub → Actions tab → Download `firmware.zip`.
 
 ## Flash
 
-1. Connect keyboard half via USB
-2. Double-tap reset button (enters bootloader)
-3. Copy `.uf2` file to mounted USB drive
-4. Repeat for other half
+1. Connect keyboard half via USB.
+2. Double-tap reset button (enters bootloader).
+3. Copy `.uf2` file to mounted USB drive.
+4. Repeat for other half.

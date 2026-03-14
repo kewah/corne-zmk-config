@@ -2,15 +2,10 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: urob
-      url-base: https://github.com/urob
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: 8feeb52eafc716c1697cfe0515e98b78281c3543  # Pin latest ZMK main for HWMv2 Corne support
-      import: app/west.yml
-    - name: zmk-adaptive-key
-      remote: urob
       revision: main
+      import: app/west.yml
   self:
     path: config
