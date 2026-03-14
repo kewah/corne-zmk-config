@@ -26,14 +26,14 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
 
 ## Layer Access
 
-| Layer | Access                        |
-| ----- | ----------------------------- |
-| MOD   | tap `Mod/Ext`                 |
-| EXT   | hold `Mod/Ext`                |
-| SYM   | hold `Bspc/Sym`               |
-| NUM   | hold `Space/Num`              |
-| MF    | hold both middle thumbs       |
-| BT    | hold right outer key on `MF`  |
+| Layer | Access                       |
+| ----- | ---------------------------- |
+| MOD   | tap `Mod/Ext`                |
+| EXT   | hold `Mod/Ext`               |
+| SYM   | hold `Bspc/Sym`              |
+| NUM   | hold `Space/Num`             |
+| MF    | hold both middle thumbs      |
+| BT    | hold right outer key on `MF` |
 
 ## BASE (Graphite)
 
@@ -99,13 +99,13 @@ Right half
 | ------ | ------ | ------ | ----- | ------- | ------ |
 | Top    |        | `HOME` | `END` |         | `PGUP` |
 | Home   | `LEFT` | `DOWN` | `UP`  | `RIGHT` |        |
-| Bottom |        | `TAB`  |       |         | `PGDN` |
+| Bottom |        | `TAB`  | `DEL` |         | `PGDN` |
 
 Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-|            | `EXT`       |            | `DEL`       | `SPC`        |             |
+|            | `EXT`       |            |             | `SPC`        |             |
 
 ## SYM (hold `Bspc/Sym`)
 
@@ -183,11 +183,11 @@ Outer keys
 
 Left half
 
-| Row    | Col 1    | Col 2      | Col 3      | Col 4   | Col 5    |
-| ------ | -------- | ---------- | ---------- | ------- | -------- |
-| Top    | `BT CLR` | `OUT USB`  | `OUT BLE`  |         |          |
-| Home   | `BT PRV` | `BT 0`    | `BT 1`     | `BT 2`  | `BT NXT` |
-| Bottom |          | `BT 3`    | `BT 4`     |         |          |
+| Row    | Col 1    | Col 2     | Col 3     | Col 4  | Col 5    |
+| ------ | -------- | --------- | --------- | ------ | -------- |
+| Top    | `BT CLR` | `OUT USB` | `OUT BLE` |        |          |
+| Home   | `BT PRV` | `BT 0`    | `BT 1`    | `BT 2` | `BT NXT` |
+| Bottom |          | `BT 3`    | `BT 4`    |        |          |
 
 Right half
 
@@ -239,12 +239,12 @@ If Bluetooth stops working after a firmware change:
 
 ## Encoders
 
-| Encoder         | Press        | Rotate              |
-| --------------- | ------------ | ------------------- |
-| Top-left        | `MUTE`       | Volume down/up      |
-| Top-right       | `PLAY/PAUSE` | Page up/down        |
-| Bottom-left     | —            | Track prev/next     |
-| Bottom-right    | —            | Brightness down/up  |
+| Encoder      | Press        | Rotate             |
+| ------------ | ------------ | ------------------ |
+| Top-left     | `MUTE`       | Volume down/up     |
+| Top-right    | `PLAY/PAUSE` | Page up/down       |
+| Bottom-left  | —            | Track prev/next    |
+| Bottom-right | —            | Brightness down/up |
 
 ## Build
 
