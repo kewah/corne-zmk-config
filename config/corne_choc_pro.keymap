@@ -170,7 +170,7 @@
         ext_layer {
             label = "EXT";
             bindings = <
-            &none  &none        &none        &none        &none        &none         &trans &trans &none        &kp HOME     &kp END      &none        &kp PG_UP    &none
+            &none  &none        &none        &none        &none        &none         &trans &trans &kp RALT     &kp HOME     &kp END      &none        &kp PG_UP    &none
             &none  &kp LSHFT    &kp LALT     &kp LCTRL    &kp LGUI     &none         &trans &trans &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none        &none
             &none  &none        &none        &none        &none        &none                      &none        &kp TAB      &kp DEL      &none        &kp PG_DN    &none
                                              &trans       &trans       &trans                      &trans       &kp SPACE    &trans
