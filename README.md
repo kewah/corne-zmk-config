@@ -69,19 +69,19 @@ Outer keys
 
 Left half
 
-| Row    | Col 1    | Col 2  | Col 3   | Col 4  | Col 5  |
-| ------ | -------- | ------ | ------- | ------ | ------ |
-| Top    |          |        |         |        |        |
-| Home   | `SHIFT*` | `ALT*` | `CTRL*` | `CMD*` | `HYP*` |
-| Bottom |          |        |         |        |        |
+| Row    | Col 1    | Col 2  | Col 3   | Col 4  | Col 5 |
+| ------ | -------- | ------ | ------- | ------ | ----- |
+| Top    |          |        |         |        |       |
+| Home   | `SHIFT*` | `ALT*` | `CTRL*` | `CMD*` |       |
+| Bottom |          |        |         |        |       |
 
 Right half
 
-| Row    | Col 1 | Col 2 | Col 3 | Col 4 | Col 5 |
-| ------ | ----- | ----- | ----- | ----- | ----- |
-| Top    |       |       |       |       |       |
-| Home   |       | `TMX` |       |       |       |
-| Bottom |       |       |       |       |       |
+| Row    | Col 1 | Col 2  | Col 3 | Col 4 | Col 5 |
+| ------ | ----- | ------ | ----- | ----- | ----- |
+| Top    |       |        |       |       |       |
+| Home   |       | `HYP*` |       |       | `TMX` |
+| Bottom |       |        |       |       |       |
 
 ## EXT (hold `Mod/Ext`)
 
