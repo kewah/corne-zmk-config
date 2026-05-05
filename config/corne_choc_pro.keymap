@@ -5,11 +5,13 @@
 // - Hold EXT for navigation/editing, tap EXT for sticky MOD
 // - Symbols prioritized for markup and writing
 // - Shared media/function layer on dual-thumb chords
+// - Left middle + right outer thumb combo opens BT layer
 // - BT controls on left, RGB controls on right of BT layer
 //
 // Extra Corne keys vs Totem:
-//   Middle-row outers (pos 14, 27) → Totem outer keys (mouseless, mo BT)
-//   Top-row outers (pos 0, 13), bottom-row outers (pos 28, 39) → &none
+//   Middle-row left outer (pos 14) → mouseless
+//   Middle-row right outer (pos 27), top-row outers (pos 0, 13),
+//     bottom-row outers (pos 28, 39) → &none
 //   Center keys (pos 6, 7, 20, 21) → encoder press / &none
 
 #include <behaviors.dtsi>
@@ -138,6 +140,14 @@
             key-positions = <41 44>;
             bindings = <&mo MF>;
         };
+
+        // BT layer: left middle + right outer thumb (Corne positions 41 + 45)
+        combo_bt {
+            timeout-ms = <100>;
+            key-positions = <41 45>;
+            bindings = <&mo BT>;
+            layers = <BASE>;
+        };
     };
 
     keymap {
@@ -201,7 +211,7 @@
             label = "MF";
             bindings = <
             &none  &none        &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &none         &trans &trans &kp F12      &kp F7       &kp F8       &kp F9       &none        &none
-            &none  &kp C_STOP   &kp C_PP     &kp C_PREV   &kp C_NEXT   &none         &trans &trans &kp F10      &kp F1       &kp F2       &kp F3       &none        &mo BT
+            &none  &kp C_STOP   &kp C_PP     &kp C_PREV   &kp C_NEXT   &none         &trans &trans &kp F10      &kp F1       &kp F2       &kp F3       &none        &none
             &none  &none        &kp C_BRI_DN &kp C_BRI_UP &none        &kp F11                    &kp F4       &kp F5       &kp F6       &none        &none        &none
                                              &trans       &trans       &trans                      &trans       &trans       &trans
             >;
