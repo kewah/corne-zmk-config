@@ -183,7 +183,7 @@
             &none  &none        &none        &none        &none        &none         &trans &trans &kp RALT     &kp HOME     &kp END      &none        &kp PG_UP    &none
             &none  &sk LSHFT    &sk LALT     &sk LCTRL    &sk LGUI     &none         &trans &trans &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none        &none
             &none  &none        &none        &none        &none        &none                      &none        &kp TAB      &kp DEL      &none        &kp PG_DN    &none
-                                             &trans       &trans       &trans                      &trans       &kp SPACE    &trans
+                                             &trans       &trans       &trans                      &kp DEL      &kp SPACE    &trans
             >;
         };
 
