@@ -190,9 +190,9 @@
         sym_layer {
             label = "SYM";
             bindings = <
-            &none  &kp GRAVE    &kp TILDE    &kp AT       &kp HASH     &kp DLLR      &trans &trans &none        &kp FSLH     &kp COLON    &kp SEMI     &kp BSLH     &none
-            &none  &kp LSHFT    &kp LALT     &kp LCTRL    &kp LGUI     &kp HYPER_MOD &trans &trans &kp LT       &kp LPAR     &kp LBRC     &kp LBKT     &kp MINUS    &none
-            &none  &kp CARET    &kp AMPS     &kp EXCL     &kp QMARK    &kp PIPE                   &kp GT       &kp RPAR     &kp RBRC     &kp RBKT     &kp UNDER    &none
+            &none  &none        &kp TILDE    &kp AT       &kp HASH     &kp DLLR      &trans &trans &kp EQUAL    &kp GRAVE    &kp COLON    &kp SEMI     &kp PRCNT    &none
+            &none  &kp LSHFT    &kp LALT     &kp LCTRL    &kp LGUI     &kp HYPER_MOD &trans &trans &kp MINUS    &kp LPAR     &kp LBRC     &kp LBKT     &kp LT       &none
+            &none  &kp CARET    &kp AMPS     &kp ASTRK    &kp PLUS     &kp PIPE                   &kp UNDER    &kp RPAR     &kp RBRC     &kp RBKT     &kp GT       &none
                                              &trans       &trans       &trans                      &trans       &trans       &trans
             >;
         };
