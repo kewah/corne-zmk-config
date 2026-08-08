@@ -8,16 +8,26 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
 
 - Base layer uses Graphite.
 - Only the inner 5 columns per half are used for alpha/layer keys. Extra keys are mapped as follows:
-  - Middle-row left outer carries `mouseless`.
-  - Middle-row right outer, top-row outer keys, bottom-row outer keys, and center keys are unused.
+  - Middle-row left outer carries `mouseless` on `BASE` and `` CMD+` `` on `MOD`/`EXT`.
+  - Middle-row right outer, top-row outer keys, and bottom-row outer keys are unused.
+  - The two top center keys are encoder presses; the remaining center keys are unused.
 - The layer diagrams omit unused extra keys unless one is used on that layer.
 - `Mod/Ext` is the main layer key:
   - tap = sticky `MOD`
   - hold = `EXT`
+- The remaining thumb keys are organized by role:
+  - tap `Esc/Shift` for Escape; hold it for Shift
+  - tap `Sym` or `Num` for one sticky layer key; hold for a sequence
+  - `Enter` and `Space` are dedicated, normally repeatable keys
+  - hold `Esc/Shift` with the left thumb and tap `Enter` with the right thumb for Shift+Enter
+- `Delete` and `Backspace` occupy the Enter and Space positions on both `MOD` and `EXT`:
+  - tap `Mod/Ext`, then tap the position for a one-shot edit
+  - hold `Mod/Ext`, then hold the position for normal key repeat
+- `EXT` left half is a one-handed mouse companion: app switching, tab cycling, window cycling, back/forward, close, select all, undo/cut/copy/paste while the right hand stays on the mouse.
 - `MF` is a momentary thumb-chord layer:
-  - hold both middle thumbs = `MF`
+  - hold both outer thumbs (`Esc/Shift` + `Num`) = `MF`
 - `BT` is a momentary thumb-chord layer:
-  - hold left middle thumb + right outer thumb = `BT`
+  - hold `Mod/Ext` + `Num` = `BT`
 - `MOD` keys are hybrid modifiers:
   - tap = sticky mod
   - hold = normal held mod
@@ -26,14 +36,14 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
 
 ## Layer Access
 
-| Layer | Access                       |
-| ----- | ---------------------------- |
-| MOD   | tap `Mod/Ext`                |
-| EXT   | hold `Mod/Ext`               |
-| SYM   | hold `Bspc/Sym`              |
-| NUM   | hold `Space/Num`             |
-| MF    | hold both middle thumbs      |
-| BT    | hold left middle thumb + right outer thumb |
+| Layer | Access                                       |
+| ----- | -------------------------------------------- |
+| MOD   | tap `Mod/Ext`                                |
+| EXT   | hold `Mod/Ext`                               |
+| SYM   | tap `Sym` for sticky; hold for momentary     |
+| NUM   | tap `Num` for sticky; hold for momentary     |
+| MF    | hold both outer thumbs (`Esc/Shift` + `Num`) |
+| BT    | hold `Mod/Ext` + `Num`                       |
 
 ## BASE (Graphite)
 
@@ -57,7 +67,7 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-| `ESC`      | `MOD/EXT`   | `RET`      | `BSP/SYM`   | `SPC/NUM`    | `SHIFT`     |
+| `ESC/SHIFT` | `MOD/EXT`  | `SYM†`     | `RET`       | `SPC`        | `NUM†`      |
 
 Outer keys
 
@@ -69,11 +79,11 @@ Outer keys
 
 Left half
 
-| Row    | Col 1    | Col 2  | Col 3   | Col 4  | Col 5 |
-| ------ | -------- | ------ | ------- | ------ | ----- |
-| Top    |          |        |         |        |       |
-| Home   | `SHIFT*` | `ALT*` | `CTRL*` | `CMD*` |       |
-| Bottom |          |        |         |        |       |
+| Row    | Col 1   | Col 2     | Col 3  | Col 4  | Col 5   |
+| ------ | ------- | --------- | ------ | ------ | ------- |
+| Top    | `CMD+[` | `CTRL+TAB` | `QSWAP` | `CMD+W` | `CMD+Z` |
+| Home   | `SHIFT*` | `ALT*`   | `CTRL*` | `CMD*` | `CMD+R` |
+| Bottom | `CMD+]` | `CMD+X`   | `CMD+A` | `CMD+C` | `CMD+V` |
 
 Right half
 
@@ -83,15 +93,27 @@ Right half
 | Home   |       | `HYP*` |       |       | `TMX` |
 | Bottom |       |        |       |       |       |
 
+Thumbs
+
+| Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
+| ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
+|            | `MOD`       |            | `DEL`       | `BSP`        |             |
+
+Outer keys
+
+| Left outer | Right outer |
+| ---------- | ----------- |
+| `` CMD+` `` |             |
+
 ## EXT (hold `Mod/Ext`)
 
 Left half
 
-| Row    | Col 1   | Col 2 | Col 3  | Col 4 | Col 5 |
-| ------ | ------- | ----- | ------ | ----- | ----- |
-| Top    |         |       |        |       |       |
-| Home   | `SHIFT†` | `ALT†` | `CTRL†` | `CMD†` |       |
-| Bottom |          |        |         |        |       |
+| Row    | Col 1   | Col 2  | Col 3 | Col 4  | Col 5   |
+| ------ | ------- | ------ | ----- | ------ | ------- |
+| Top    | `CMD+[` | `TSWAP` | `SWAP` | `CMD+W` | `CMD+Z` |
+| Home   | `SHIFT†` | `ALT†` | `CTRL†` | `CMD†` | `CMD+R` |
+| Bottom | `CMD+]` | `CMD+X` | `CMD+A` | `CMD+C` | `CMD+V` |
 
 Right half
 
@@ -105,9 +127,15 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-|            | `EXT`       |            |             | `SPC`        |             |
+|            | `EXT`       |            | `DEL`       | `BSP`        |             |
 
-## SYM (hold `Bspc/Sym`)
+Outer keys
+
+| Left outer | Right outer |
+| ---------- | ----------- |
+| `` CMD+` `` |             |
+
+## SYM (tap `Sym` for sticky; hold for momentary)
 
 Left half
 
@@ -129,9 +157,9 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-|            |             |            | `SYM`       |              |             |
+|            |             | `SYM`      | `RET`       | `SPC`        | `NUM†`      |
 
-## NUM (hold `Space/Num`)
+## NUM (tap `Num` for sticky; hold for momentary)
 
 Left half
 
@@ -153,9 +181,9 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-| `:`        | `0`         | `=`        |             | `NUM`        |             |
+| `:`        | `0`         | `=`        | `RET`       | `SPC`        | `NUM`       |
 
-## MF (hold both middle thumbs)
+## MF (hold both outer thumbs: `Esc/Shift` + `Num`)
 
 Left half
 
@@ -173,7 +201,7 @@ Right half
 | Home   | `F10` | `F1`  | `F2`  | `F3`  |       |
 | Bottom | `F11` | `F4`  | `F5`  | `F6`  |       |
 
-## BT (hold left middle thumb + right outer thumb)
+## BT (hold `Mod/Ext` + `Num`)
 
 Left half
 
@@ -194,16 +222,29 @@ Right half
 ## Legend
 
 - `X/Y` = tap `X`, hold `Y`
+- `SYM†`, `NUM†` = tap for a sticky one-key layer, hold for a momentary layer
+- `DEL`/`BSP` on `MOD` and `EXT`:
+  - tap `Mod/Ext`, then tap `Enter`/`Space` for one Delete/Backspace
+  - hold `Mod/Ext`, then hold `Enter`/`Space` for repeating Delete/Backspace
 - `SHIFT*`, `ALT*`, `CTRL*`, `CMD*`, `HYP*` on `MOD`:
   - tap = sticky modifier
   - hold = normal held modifier
 - `SHIFT†`, `ALT†`, `CTRL†`, `CMD†` on `EXT`:
   - sticky modifiers (tap to activate, auto-release after next keypress)
   - stackable: tap multiple to combine (e.g., `CMD†` then `SHIFT†` then `F` = Cmd+Shift+F)
+- `SWAP` = Cmd+Tab app switcher (tri-state): tap to open the macOS switcher and advance, Cmd stays held across taps, tap `SHIFT†` to cycle backward, release `Mod/Ext` (or press any other key) to commit
+- `QSWAP` = instant switch to previous app (Cmd+Tab with immediate release, no switcher UI), same key as `SWAP`
+- `TSWAP` = Ctrl+Tab tab switcher (tri-state): holds Ctrl across taps so the browser tab switcher stays up, tap `SHIFT†` to reverse (Ctrl+Shift+Tab), release `Mod/Ext` to commit. Sits beside `SWAP`
+- `CTRL+TAB` on `MOD` = plain one-shot Ctrl+Tab, same key position as `TSWAP`
+- `CMD+[` / `CMD+]` = back / forward
+- `CMD+Z/X/C/V/W` sit on their Graphite letter positions as mnemonics
+- `CMD+A` (select all) sits left of `CMD+C` to cluster select/copy/paste for one-handed use
+- `CMD+R` (reload) sits on the home row inner column
+- Left-hand `CMD` shortcuts exist on both layers: tap `Mod/Ext` for a one-shot (`MOD`), hold for repeats and `SWAP` cycling (`EXT`)
 - `HYP` = Hyper (`Ctrl+Alt+Cmd+Shift`)
 - `TMX` = tmux prefix (`Ctrl+Space`)
 - `RALT` = Right Alt (used for VoiceInk speech-to-text)
-- `ML` = Mouseless trigger (`Hyper+Enter`)
+- `ML` = Mouseless trigger (`Hyper+Enter`); its position sends `` CMD+` `` on `MOD`/`EXT`
 - `BT 0`–`BT 4` = directly select Bluetooth profile slots 0–4
 - `BT CLR` = clear Bluetooth bonds
 - `BT NXT` / `BT PRV` = switch Bluetooth profile
@@ -213,15 +254,15 @@ Right half
 - `RGB SAI` / `RGB SAD` = increase/decrease saturation
 - `RGB BRI` / `RGB BRD` = increase/decrease brightness
 - `RGB EFF` = cycle RGB effect
-- Middle-row left outer key = `ML` on `BASE`
-- Middle-row right outer key, top-row outer keys, bottom-row outer keys, and center keys are unused
+- Middle-row left outer key = `ML` on `BASE`, `` CMD+` `` on `MOD`/`EXT`
+- Middle-row right outer key, top-row outer keys, and bottom-row outer keys are unused
 
 ## Bluetooth Recovery
 
 If Bluetooth stops working after a firmware change:
 
 1. Forget the keyboard in macOS Bluetooth settings.
-2. Hold left middle thumb + right outer thumb to reach `BT`.
+2. Hold `Mod/Ext` + `Num` to reach `BT`.
 3. Press `BT CLR`.
 4. Use `BT 0`–`BT 4` to jump directly to the host profile you want, or `BT NXT` / `BT PRV` to cycle.
 5. If the board is on the wrong output, press `OUT BLE` or `OUT USB`.

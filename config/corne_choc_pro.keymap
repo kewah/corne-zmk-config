@@ -3,9 +3,14 @@
 // - Graphite base
 // - Dedicated MOD layer instead of base home row mods
 // - Hold EXT for navigation/editing, tap EXT for sticky MOD
+// - EXT left hand: one-handed mouse companion (swapper, history, clipboard),
+//   mirrored on MOD so tap-then-key one-shots the same shortcuts
+// - Thumb Shift: tap Escape, hold Shift
+// - Dedicated Enter and Space; sticky-tap/held SYM and NUM
+// - Delete and Backspace mirrored on MOD/EXT for one-shot or held repeat
 // - Symbols prioritized for markup and writing
-// - Shared media/function layer on dual-thumb chords
-// - Left middle + right outer thumb combo opens BT layer
+// - Both outer thumbs open the shared media/function layer
+// - MOD/EXT + NUM opens the BT layer
 // - BT controls on left, RGB controls on right of BT layer
 //
 // Extra Corne keys vs Totem:
@@ -86,14 +91,43 @@
             retro-tap;
         };
 
-        lt_thumb: layer_tap_thumb {
+        // Cmd-Tab app switcher: holds Cmd across taps, released on
+        // interrupt (any other key or leaving EXT). Sticky Shift (pos 15)
+        // is ignored so it can reverse-cycle without dropping Cmd.
+        swapper: swapper {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
+            ignored-key-positions = <15>;
+        };
+
+        // Ctrl-Tab tab switcher: same tri-state as swapper but holds Ctrl,
+        // so taps cycle tabs while the browser switcher stays up. Sticky
+        // Shift (pos 15) is ignored so it can reverse-cycle (Ctrl+Shift+Tab).
+        tab_swapper: tab_swapper {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LCTRL>, <&kp TAB>, <&kt LCTRL>;
+            ignored-key-positions = <15>;
+        };
+
+        // Escape is a discrete tap; Shift resolves as soon as a chord starts.
+        esc_shift: escape_or_shift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <150>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        // Layer-only thumbs converge on the same layer: sticky when tapped,
+        // momentary when held. Pass the target layer in both parameter cells.
+        sticky_layer: sticky_or_held_layer {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
-            bindings = <&mo>, <&kp>;
+            tapping-term-ms = <300>;
+            bindings = <&mo>, <&sl>;
         };
     };
 
@@ -104,6 +138,16 @@
             bindings = <&macro_press &kp LCTRL &kp LALT &kp LGUI &kp LSHFT>,
                        <&macro_tap &kp RET>,
                        <&macro_release &kp LCTRL &kp LALT &kp LGUI &kp LSHFT>;
+        };
+
+        // Instant switch to previous app: Cmd released right away so
+        // the macOS switcher UI never shows (unlike &kp LG(TAB)).
+        quick_swap: quick_app_swap {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LGUI>,
+                       <&macro_tap &kp TAB>,
+                       <&macro_release &kp LGUI>;
         };
 
         tmx: tmux_prefix {
@@ -134,14 +178,17 @@
             layers = <EXT>;
         };
 
-        // Media/Function: middle thumbs (Corne positions 41 + 44)
-        combo_mf_middle_thumbs {
-            timeout-ms = <60>;
-            key-positions = <41 44>;
+        // MF moved off MOD/EXT + Space so that chord can repeat Backspace.
+        // Media/Function: outer thumbs (Corne positions 40 + 45)
+        combo_mf_outer_thumbs {
+            timeout-ms = <100>;
+            key-positions = <40 45>;
             bindings = <&mo MF>;
+            layers = <BASE>;
         };
 
-        // BT layer: left middle + right outer thumb (Corne positions 41 + 45)
+        // MOD/EXT + the right outer NUM key is reserved for maintenance.
+        // BT layer: Corne positions 41 + 45.
         combo_bt {
             timeout-ms = <100>;
             key-positions = <41 45>;
@@ -162,7 +209,7 @@
             &mouseless &kp N       &kp R        &kp T        &kp S     &kp G    &none  &none    &kp Y       &kp H        &kp A        &kp E        &kp I     &none
         //  ┌─extra─┐                                                                                                                                      ┌─extra─┐
             &none     &kp Q        &kp X        &kp M        &kp C     &kp V                    &kp K       &kp P        &comma_qmark &dot_excl    &slash_bslash &none
-                                          &kp ESC  &ext_mod EXT MOD  &kp RET                    &lt_thumb SYM BSPC  &lt_thumb NUM SPACE  &kp LSHFT
+                                          &esc_shift LSHFT ESC  &ext_mod EXT MOD  &sticky_layer SYM SYM                    &kp RET  &kp SPACE  &sticky_layer NUM NUM
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
         };
@@ -170,20 +217,20 @@
         mod_layer {
             label = "MOD";
             bindings = <
-            &none  &trans       &trans       &trans       &trans       &trans        &trans &trans &trans       &trans       &trans       &trans       &trans       &none
-            &trans &hm LSHFT LSHFT &hm LALT LALT &hm LCTRL LCTRL &hm LGUI LGUI &trans &trans &trans &trans &hm HYPER_MOD HYPER_MOD &trans &trans &tmx &trans
-            &none  &trans       &trans       &trans       &trans       &trans                     &trans       &trans       &trans       &trans       &trans       &none
-                                             &trans       &trans       &trans                     &trans       &trans       &trans
+            &none        &kp LG(LBKT)  &kp LC(TAB)  &quick_swap  &kp LG(W)    &kp LG(Z)        &trans &trans &trans       &trans       &trans       &trans       &trans       &none
+            &kp LG(GRAVE) &hm LSHFT LSHFT &hm LALT LALT &hm LCTRL LCTRL &hm LGUI LGUI &kp LG(R) &trans &trans &trans &hm HYPER_MOD HYPER_MOD &trans &trans &tmx &trans
+            &none        &kp LG(RBKT)  &kp LG(X)    &kp LG(A)    &kp LG(C)    &kp LG(V)                     &trans       &trans       &trans       &trans       &trans       &none
+                                             &trans       &trans       &trans                     &kp DEL      &kp BSPC     &trans
             >;
         };
 
         ext_layer {
             label = "EXT";
             bindings = <
-            &none  &none        &none        &none        &none        &none         &trans &trans &kp RALT     &kp HOME     &kp END      &none        &kp PG_UP    &none
-            &none  &sk LSHFT    &sk LALT     &sk LCTRL    &sk LGUI     &none         &trans &trans &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none        &none
-            &none  &none        &none        &none        &none        &none                      &none        &kp TAB      &kp DEL      &none        &kp PG_DN    &none
-                                             &trans       &trans       &trans                      &kp DEL      &kp SPACE    &trans
+            &none        &kp LG(LBKT)  &tab_swapper &swapper     &kp LG(W)    &kp LG(Z)        &trans &trans &kp RALT     &kp HOME     &kp END      &none        &kp PG_UP    &none
+            &kp LG(GRAVE) &sk LSHFT     &sk LALT     &sk LCTRL    &sk LGUI     &kp LG(R)        &trans &trans &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none        &none
+            &none        &kp LG(RBKT)  &kp LG(X)    &kp LG(A)    &kp LG(C)    &kp LG(V)                     &none        &kp TAB      &kp DEL      &none        &kp PG_DN    &none
+                                             &trans       &trans       &trans                      &kp DEL      &kp BSPC     &trans
             >;
         };
 
