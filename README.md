@@ -125,8 +125,15 @@ Right half
 | Row    | Col 1  | Col 2  | Col 3 | Col 4   | Col 5  |
 | ------ | ------ | ------ | ----- | ------- | ------ |
 | Top    | `RALT` | `HOME` | `END` |         | `PGUP` |
-| Home   | `LEFT` | `DOWN` | `UP`  | `RIGHT` |        |
+| Home   | `LEFT` | `DOWN` ① | `UP` ①② | `RIGHT` ② |        |
 | Bottom |        | `TAB`  | `DEL` |         | `PGDN` |
+
+Word-navigation chords (press the marked keys together):
+
+| Chord | Base positions | Output |
+| ----- | -------------- | ------ |
+| ① `DOWN` + `UP` | `H` + `A` | Opt+Left |
+| ② `UP` + `RIGHT` | `A` + `E` | Opt+Right |
 
 Thumbs
 
@@ -146,17 +153,24 @@ Left half
 
 | Row    | Col 1   | Col 2 | Col 3  | Col 4 | Col 5 |
 | ------ | ------- | ----- | ------ | ----- | ----- |
-| Top    |         | `~`   | `@`    | `#`   | `$`   |
+| Top    |         | `^`   | `&`    | `\|`  |       |
 | Home   | `SHIFT` | `ALT` | `CTRL` | `CMD` | `HYP` |
-| Bottom | `^`     | `&`   | `*`    | `+`   | `\|`  |
+| Bottom |         |       |        |       |       |
 
 Right half
 
-| Row    | Col 1 | Col 2   | Col 3 | Col 4 | Col 5 |
-| ------ | ----- | ------- | ----- | ----- | ----- |
-| Top    | `=`   | `` ` `` | `:`   | `;`   | `%`   |
-| Home   | `-`   | `(`     | `{`   | `[`   | `<`   |
-| Bottom | `_`   | `)`     | `}`   | `]`   | `>`   |
+| Row    | Col 1  | Col 2 | Col 3 | Col 4 | Col 5 |
+| ------ | ------ | ----- | ----- | ----- | ----- |
+| Top    | `~`    | `@`   | `` ` `` | `#`   | `$`   |
+| Home   | `-`    | `(` ① | `{` ① | `[`   | `;`   |
+| Bottom | `_`    | `)` ② | `}` ② | `]`   | `:`   |
+
+Angle-bracket chords (press the marked keys together):
+
+| Chord | Output |
+| ----- | ------ |
+| ① `(` + `{` | `<` |
+| ② `)` + `}` | `>` |
 
 Thumbs
 
@@ -274,12 +288,14 @@ If Bluetooth stops working after a firmware change:
 5. If the board is on the wrong output, press `OUT BLE` or `OUT USB`.
 6. If that still does not recover it, flash the `settings_reset` UF2 to both halves, then re-flash the normal left/right firmware.
 
-## Combos (EXT layer)
+## Combos
 
-| Keys | Output                 |
-| ---- | ---------------------- |
-| H+A  | Opt+Left (word left)   |
-| A+E  | Opt+Right (word right) |
+| Layer | Keys      | Output                 |
+| ----- | --------- | ---------------------- |
+| EXT   | `H` + `A` | Opt+Left (word left)   |
+| EXT   | `A` + `E` | Opt+Right (word right) |
+| SYM   | `(` + `{` | `<`                    |
+| SYM   | `)` + `}` | `>`                    |
 
 ## Encoders
 
