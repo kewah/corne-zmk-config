@@ -20,12 +20,13 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
   - tap `Sym` or `Num` for one sticky layer key; hold for a sequence
   - `Enter` and `Space` are dedicated, normally repeatable keys
   - hold `Esc/Shift` with the left thumb and tap `Enter` with the right thumb for Shift+Enter
-- `Delete` and `Backspace` occupy the Enter and Space positions on both `MOD` and `EXT`:
-  - tap `Mod/Ext`, then tap the position for a one-shot edit
-  - hold `Mod/Ext`, then hold the position for normal key repeat
+- `Backspace` occupies the Space position on both `MOD` and `EXT`:
+  - tap `Mod/Ext`, then tap Space for a one-shot edit
+  - hold `Mod/Ext`, then hold Space for normal key repeat
+- `Delete` is available on the `EXT` comma position.
 - `EXT` left half is a one-handed mouse companion: app switching, tab cycling, window cycling, back/forward, close, select all, undo/cut/copy/paste while the right hand stays on the mouse.
 - `MF` is a momentary thumb-chord layer:
-  - hold both outer thumbs (`Esc/Shift` + `Num`) = `MF`
+  - hold both inner layer thumbs (`Sym` + `Num`) = `MF`
 - `BT` is a momentary thumb-chord layer:
   - hold `Mod/Ext` + `Num` = `BT`
 - `MOD` keys are hybrid modifiers:
@@ -33,6 +34,10 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
   - hold = normal held mod
 - `TMX` on `MOD` sends the tmux prefix (`Ctrl+Space`)
 - Encoders: top-left press = `MUTE`, top-right press = `PLAY/PAUSE`, rotation = volume/page/track/brightness
+
+### Thumb Placement Philosophy
+
+`Mod/Ext` and `Space` occupy the middle resting positions. `Sym` and `Num` mirror each other on the inner thumbs, while `Esc/Shift` and `Enter` mirror each other on the outer thumbs for a simple two-thumb Shift+Enter chord. Enter and Space stay dedicated and repeatable, and the layer triggers consistently use sticky tap and momentary hold.
 
 ## Layer Access
 
@@ -42,7 +47,7 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
 | EXT   | hold `Mod/Ext`                               |
 | SYM   | tap `Sym` for sticky; hold for momentary     |
 | NUM   | tap `Num` for sticky; hold for momentary     |
-| MF    | hold both outer thumbs (`Esc/Shift` + `Num`) |
+| MF    | hold both inner thumbs (`Sym` + `Num`)       |
 | BT    | hold `Mod/Ext` + `Num`                       |
 
 ## BASE (Graphite)
@@ -67,7 +72,7 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-| `ESC/SHIFT` | `MOD/EXT`  | `SYM†`     | `RET`       | `SPC`        | `NUM†`      |
+| `ESC/SHIFT` | `MOD/EXT`  | `SYM†`     | `NUM†`      | `SPC`        | `RET`       |
 
 Outer keys
 
@@ -97,7 +102,7 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-|            | `MOD`       |            | `DEL`       | `BSP`        |             |
+|            | `MOD`       |            |             | `BSP`        |             |
 
 Outer keys
 
@@ -127,7 +132,7 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-|            | `EXT`       |            | `DEL`       | `BSP`        |             |
+|            | `EXT`       |            |             | `BSP`        |             |
 
 Outer keys
 
@@ -157,7 +162,7 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-|            |             | `SYM`      | `RET`       | `SPC`        | `NUM†`      |
+|            |             | `SYM`      | `NUM†`      | `SPC`        | `RET`       |
 
 ## NUM (tap `Num` for sticky; hold for momentary)
 
@@ -181,9 +186,9 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-| `:`        | `0`         | `=`        | `RET`       | `SPC`        | `NUM`       |
+| `:`        | `0`         | `=`        | `NUM`       | `SPC`        | `RET`       |
 
-## MF (hold both outer thumbs: `Esc/Shift` + `Num`)
+## MF (hold both inner layer thumbs: `Sym` + `Num`)
 
 Left half
 
@@ -223,9 +228,10 @@ Right half
 
 - `X/Y` = tap `X`, hold `Y`
 - `SYM†`, `NUM†` = tap for a sticky one-key layer, hold for a momentary layer
-- `DEL`/`BSP` on `MOD` and `EXT`:
-  - tap `Mod/Ext`, then tap `Enter`/`Space` for one Delete/Backspace
-  - hold `Mod/Ext`, then hold `Enter`/`Space` for repeating Delete/Backspace
+- `BSP` on `MOD` and `EXT`:
+  - tap `Mod/Ext`, then tap `Space` for one Backspace
+  - hold `Mod/Ext`, then hold `Space` for repeating Backspace
+- `DEL` is on the `EXT` comma position.
 - `SHIFT*`, `ALT*`, `CTRL*`, `CMD*`, `HYP*` on `MOD`:
   - tap = sticky modifier
   - hold = normal held modifier

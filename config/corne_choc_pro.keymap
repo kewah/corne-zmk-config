@@ -7,9 +7,10 @@
 //   mirrored on MOD so tap-then-key one-shots the same shortcuts
 // - Thumb Shift: tap Escape, hold Shift
 // - Dedicated Enter and Space; sticky-tap/held SYM and NUM
-// - Delete and Backspace mirrored on MOD/EXT for one-shot or held repeat
+// - Backspace mirrored on MOD/EXT for one-shot or held repeat
+// - Delete stays on the EXT comma position
 // - Symbols prioritized for markup and writing
-// - Both outer thumbs open the shared media/function layer
+// - SYM + NUM opens the shared media/function layer
 // - MOD/EXT + NUM opens the BT layer
 // - BT controls on left, RGB controls on right of BT layer
 //
@@ -178,20 +179,20 @@
             layers = <EXT>;
         };
 
-        // MF moved off MOD/EXT + Space so that chord can repeat Backspace.
-        // Media/Function: outer thumbs (Corne positions 40 + 45)
-        combo_mf_outer_thumbs {
+        // The mirrored inner layer thumbs open Media/Function together.
+        // Media/Function: SYM + NUM (Corne positions 42 + 43)
+        combo_mf_layer_thumbs {
             timeout-ms = <100>;
-            key-positions = <40 45>;
+            key-positions = <42 43>;
             bindings = <&mo MF>;
             layers = <BASE>;
         };
 
-        // MOD/EXT + the right outer NUM key is reserved for maintenance.
-        // BT layer: Corne positions 41 + 45.
+        // MOD/EXT + the right inner NUM key is reserved for maintenance.
+        // BT layer: Corne positions 41 + 43.
         combo_bt {
             timeout-ms = <100>;
-            key-positions = <41 45>;
+            key-positions = <41 43>;
             bindings = <&mo BT>;
             layers = <BASE>;
         };
@@ -209,7 +210,7 @@
             &mouseless &kp N       &kp R        &kp T        &kp S     &kp G    &none  &none    &kp Y       &kp H        &kp A        &kp E        &kp I     &none
         //  ┌─extra─┐                                                                                                                                      ┌─extra─┐
             &none     &kp Q        &kp X        &kp M        &kp C     &kp V                    &kp K       &kp P        &comma_qmark &dot_excl    &slash_bslash &none
-                                          &esc_shift LSHFT ESC  &ext_mod EXT MOD  &sticky_layer SYM SYM                    &kp RET  &kp SPACE  &sticky_layer NUM NUM
+                                          &esc_shift LSHFT ESC  &ext_mod EXT MOD  &sticky_layer SYM SYM                    &sticky_layer NUM NUM  &kp SPACE  &kp RET
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
         };
@@ -220,7 +221,7 @@
             &none        &kp LG(LBKT)  &kp LC(TAB)  &quick_swap  &kp LG(W)    &kp LG(Z)        &trans &trans &trans       &trans       &trans       &trans       &trans       &none
             &kp LG(GRAVE) &hm LSHFT LSHFT &hm LALT LALT &hm LCTRL LCTRL &hm LGUI LGUI &kp LG(R) &trans &trans &trans &hm HYPER_MOD HYPER_MOD &trans &trans &tmx &trans
             &none        &kp LG(RBKT)  &kp LG(X)    &kp LG(A)    &kp LG(C)    &kp LG(V)                     &trans       &trans       &trans       &trans       &trans       &none
-                                             &trans       &trans       &trans                     &kp DEL      &kp BSPC     &trans
+                                             &trans       &trans       &trans                     &trans       &kp BSPC     &trans
             >;
         };
 
@@ -230,7 +231,7 @@
             &none        &kp LG(LBKT)  &tab_swapper &swapper     &kp LG(W)    &kp LG(Z)        &trans &trans &kp RALT     &kp HOME     &kp END      &none        &kp PG_UP    &none
             &kp LG(GRAVE) &sk LSHFT     &sk LALT     &sk LCTRL    &sk LGUI     &kp LG(R)        &trans &trans &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none        &none
             &none        &kp LG(RBKT)  &kp LG(X)    &kp LG(A)    &kp LG(C)    &kp LG(V)                     &none        &kp TAB      &kp DEL      &none        &kp PG_DN    &none
-                                             &trans       &trans       &trans                      &kp DEL      &kp BSPC     &trans
+                                             &trans       &trans       &trans                      &trans       &kp BSPC     &trans
             >;
         };
 
