@@ -121,14 +121,17 @@
             bindings = <&kp>, <&kp>;
         };
 
-        // Layer-only thumbs converge on the same layer: sticky when tapped,
-        // momentary when held. Pass the target layer in both parameter cells.
+        // SYM/NUM activate immediately, stay sticky when tapped, and behave
+        // momentarily when a non-modifier is pressed while held. Modifier
+        // presses do not consume the sticky layer, allowing e.g. tap NUM,
+        // tap Ctrl+Shift, then tap 1.
         sticky_layer: sticky_or_held_layer {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <300>;
-            bindings = <&mo>, <&sl>;
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            release-after-ms = <1000>;
+            bindings = <&mo>;
+            quick-release;
+            ignore-modifiers;
         };
     };
 
@@ -226,7 +229,7 @@
             &mouseless &kp N       &kp R        &kp T        &kp S     &kp G    &none  &none    &kp Y       &kp H        &kp A        &kp E        &kp I     &none
         //  ┌─extra─┐                                                                                                                                      ┌─extra─┐
             &none     &kp Q        &kp X        &kp M        &kp C     &kp V                    &kp K       &kp P        &comma_qmark &dot_excl    &slash_bslash &none
-                                          &esc_shift LSHFT ESC  &ext_mod EXT MOD  &sticky_layer SYM SYM                    &sticky_layer NUM NUM  &kp SPACE  &kp RET
+                                          &esc_shift LSHFT ESC  &ext_mod EXT MOD  &sticky_layer SYM                    &sticky_layer NUM  &kp SPACE  &kp RET
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
         };
@@ -237,7 +240,7 @@
             &none        &kp LG(LBKT)  &kp LC(TAB)  &quick_swap  &kp LG(W)    &kp LG(Z)        &trans &trans &trans       &trans       &trans       &trans       &trans       &none
             &kp LG(GRAVE) &hm LSHFT LSHFT &hm LALT LALT &hm LCTRL LCTRL &hm LGUI LGUI &kp LG(R) &trans &trans &trans &hm HYPER_MOD HYPER_MOD &trans &trans &tmx &trans
             &none        &kp LG(RBKT)  &kp LG(X)    &kp LG(A)    &kp LG(C)    &kp LG(V)                     &trans       &trans       &trans       &trans       &trans       &none
-                                             &trans       &trans       &trans                     &trans       &kp BSPC     &trans
+                                             &trans       &trans       &trans                     &trans       &kp BSPC     &kp LS(RET)
             >;
         };
 
@@ -247,7 +250,7 @@
             &none        &kp LG(LBKT)  &tab_swapper &swapper     &kp LG(W)    &kp LG(Z)        &trans &trans &kp RALT     &kp HOME     &kp END      &none        &kp PG_UP    &none
             &kp LG(GRAVE) &sk LSHFT     &sk LALT     &sk LCTRL    &sk LGUI     &kp LG(R)        &trans &trans &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none        &none
             &none        &kp LG(RBKT)  &kp LG(X)    &kp LG(A)    &kp LG(C)    &kp LG(V)                     &none        &kp TAB      &kp DEL      &none        &kp PG_DN    &none
-                                             &trans       &trans       &trans                      &trans       &kp BSPC     &trans
+                                             &trans       &trans       &trans                      &trans       &kp BSPC     &kp LS(RET)
             >;
         };
 
@@ -255,7 +258,7 @@
             label = "SYM";
             bindings = <
             &none  &none        &kp CARET    &kp AMPS     &kp PIPE     &none         &trans &trans &kp TILDE    &kp AT       &kp GRAVE    &kp HASH     &kp DLLR     &none
-            &none  &kp LSHFT    &kp LALT     &kp LCTRL    &kp LGUI     &kp HYPER_MOD &trans &trans &kp MINUS    &kp LPAR     &kp LBRC     &kp LBKT     &kp SEMI     &none
+            &none  &sk LSHFT    &sk LALT     &sk LCTRL    &sk LGUI     &sk HYPER_MOD &trans &trans &kp MINUS    &kp LPAR     &kp LBRC     &kp LBKT     &kp SEMI     &none
             &none  &none        &none        &none        &none        &none                      &kp UNDER    &kp RPAR     &kp RBRC     &kp RBKT     &kp COLON    &none
                                              &trans       &trans       &trans                      &trans       &trans       &trans
             >;
@@ -265,7 +268,7 @@
             label = "NUM";
             bindings = <
             &none  &kp FSLH     &kp N7       &kp N8       &kp N9       &kp PRCNT     &trans &trans &none        &none        &none        &none        &none        &none
-            &none  &kp MINUS    &kp N1       &kp N2       &kp N3       &kp PLUS      &trans &trans &kp HYPER_MOD &kp LGUI    &kp LCTRL    &kp LALT     &kp LSHFT    &none
+            &none  &kp MINUS    &kp N1       &kp N2       &kp N3       &kp PLUS      &trans &trans &sk HYPER_MOD &sk LGUI    &sk LCTRL    &sk LALT     &sk LSHFT    &none
             &none  &kp X        &kp N4       &kp N5       &kp N6       &kp ASTRK                  &none        &none        &none        &none        &none        &none
                                              &kp COLON    &kp N0       &kp EQUAL                   &trans       &trans       &trans
             >;

@@ -20,6 +20,7 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
   - tap `Sym` or `Num` for one sticky layer key; hold for a sequence
   - `Enter` and `Space` are dedicated, normally repeatable keys
   - hold `Esc/Shift` with the left thumb and tap `Enter` with the right thumb for Shift+Enter
+  - tap or hold `Mod/Ext`, then tap `Enter` for an alternate resting-thumb Shift+Enter chord
 - `Backspace` occupies the Space position on both `MOD` and `EXT`:
   - tap `Mod/Ext`, then tap Space for a one-shot edit
   - hold `Mod/Ext`, then hold Space for normal key repeat
@@ -29,9 +30,10 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
   - hold both inner layer thumbs (`Sym` + `Num`) = `MF`
 - `BT` is a momentary thumb-chord layer:
   - hold `Mod/Ext` + `Num` = `BT`
-- `MOD` keys are hybrid modifiers:
+- `MOD`, `SYM`, and `NUM` home-row modifiers are hybrid modifiers:
   - tap = sticky mod
   - hold = normal held mod
+- Sticky `SYM` and `NUM` remain active while modifiers are entered, then release on the shortcut key. For example, tap `NUM`, tap `CTRL*` and `SHIFT*`, then tap `1` for Ctrl+Shift+1.
 - `TMX` on `MOD` sends the tmux prefix (`Ctrl+Space`)
 - Encoders: top-left press = `MUTE`, top-right press = `PLAY/PAUSE`, rotation = volume/page/track/brightness
 
@@ -102,7 +104,7 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-|            | `MOD`       |            |             | `BSP`        |             |
+|            | `MOD`       |            |             | `BSP`        | `SHIFT+RET` |
 
 Outer keys
 
@@ -139,7 +141,7 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-|            | `EXT`       |            |             | `BSP`        |             |
+|            | `EXT`       |            |             | `BSP`        | `SHIFT+RET` |
 
 Outer keys
 
@@ -154,7 +156,7 @@ Left half
 | Row    | Col 1   | Col 2 | Col 3  | Col 4 | Col 5 |
 | ------ | ------- | ----- | ------ | ----- | ----- |
 | Top    |         | `^`   | `&`    | `\|`  |       |
-| Home   | `SHIFT` | `ALT` | `CTRL` | `CMD` | `HYP` |
+| Home   | `SHIFT*` | `ALT*` | `CTRL*` | `CMD*` | `HYP*` |
 | Bottom |         |       |        |       |       |
 
 Right half
@@ -193,7 +195,7 @@ Right half
 | Row    | Col 1 | Col 2 | Col 3  | Col 4 | Col 5   |
 | ------ | ----- | ----- | ------ | ----- | ------- |
 | Top    |       |       |        |       |         |
-| Home   | `HYP` | `CMD` | `CTRL` | `ALT` | `SHIFT` |
+| Home   | `HYP*` | `CMD*` | `CTRL*` | `ALT*` | `SHIFT*` |
 | Bottom |       |       |        |       |         |
 
 Thumbs
@@ -245,10 +247,12 @@ Right half
 - `BSP` on `MOD` and `EXT`:
   - tap `Mod/Ext`, then tap `Space` for one Backspace
   - hold `Mod/Ext`, then hold `Space` for repeating Backspace
+- `SHIFT+RET` on `MOD` and `EXT` provides Shift+Enter from the same layer trigger used for Backspace.
 - `DEL` is on the `EXT` comma position.
 - `SHIFT*`, `ALT*`, `CTRL*`, `CMD*`, `HYP*` on `MOD`:
   - tap = sticky modifier
   - hold = normal held modifier
+- `SHIFT*`, `ALT*`, `CTRL*`, `CMD*`, `HYP*` on `SYM` and `NUM` use the same tap/hold behavior as `MOD`, so modifier muscle memory carries across all three layers.
 - `SHIFT†`, `ALT†`, `CTRL†`, `CMD†` on `EXT`:
   - sticky modifiers (tap to activate, auto-release after next keypress)
   - stackable: tap multiple to combine (e.g., `CMD†` then `SHIFT†` then `F` = Cmd+Shift+F)
