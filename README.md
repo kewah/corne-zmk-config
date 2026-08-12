@@ -164,8 +164,8 @@ Right half
 | Row    | Col 1  | Col 2 | Col 3 | Col 4 | Col 5 |
 | ------ | ------ | ----- | ----- | ----- | ----- |
 | Top    | `~`    | `@`   | `` ` `` | `#`   | `$`   |
-| Home   | `-`    | `(` ① | `{` ① | `[`   | `;`   |
-| Bottom | `_`    | `)` ② | `}` ② | `]`   | `:`   |
+| Home   | `-`    | `(` ① | `{` ① | `[`   | `:`   |
+| Bottom | `_`    | `)` ② | `}` ② | `]`   | `;`   |
 
 Angle-bracket chords (press the marked keys together):
 
