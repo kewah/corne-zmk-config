@@ -188,7 +188,7 @@ Left half
 | ------ | ----- | ----- | ----- | ----- | ----- |
 | Top    | `/`   | `7`   | `8`   | `9`   | `%`   |
 | Home   | `-`   | `1`   | `2`   | `3`   | `+`   |
-| Bottom | `x`   | `4`   | `5`   | `6`   | `*`   |
+| Bottom | `:`   | `4`   | `5`   | `6`   | `*`   |
 
 Right half
 
@@ -202,7 +202,7 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-| `:`        | `0`         | `=`        | `NUM`       | `SPC`        | `RET`       |
+| `.`        | `0`         | `=`        | `NUM`       | `SPC`        | `RET`       |
 
 ## MF (hold both inner layer thumbs: `Sym` + `Num`)
 
