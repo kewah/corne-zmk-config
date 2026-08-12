@@ -248,7 +248,7 @@
             label = "EXT";
             bindings = <
             &none        &kp LG(LBKT)  &tab_swapper &swapper     &kp LG(W)    &kp LG(Z)        &trans &trans &kp RALT     &kp HOME     &kp END      &none        &kp PG_UP    &none
-            &kp LG(GRAVE) &sk LSHFT     &sk LALT     &sk LCTRL    &sk LGUI     &kp LG(R)        &trans &trans &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none        &none
+            &kp LG(GRAVE) &sk LSHFT     &sk LALT     &sk LCTRL    &sk LGUI     &kp LG(R)        &trans &trans &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &tmx         &none
             &none        &kp LG(RBKT)  &kp LG(X)    &kp LG(A)    &kp LG(C)    &kp LG(V)                     &none        &kp TAB      &kp DEL      &none        &kp PG_DN    &none
                                              &trans       &trans       &trans                      &trans       &kp BSPC     &kp LS(RET)
             >;

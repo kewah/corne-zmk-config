@@ -34,7 +34,9 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
   - tap = sticky mod
   - hold = normal held mod
 - Sticky `SYM` and `NUM` remain active while modifiers are entered, then release on the shortcut key. For example, tap `NUM`, tap `CTRL*` and `SHIFT*`, then tap `1` for Ctrl+Shift+1.
-- `TMX` on `MOD` sends the tmux prefix (`Ctrl+Space`)
+- `TMX` on `MOD` and `EXT` sends the tmux prefix (`Ctrl+Space`):
+  - tap `Mod/Ext`, tap `TMX`, then tap a base key for the existing sticky-MOD workflow
+  - hold `Mod/Ext`, tap `TMX`, tap `Tab`, then release `Mod/Ext` to switch tmux panels
 - Encoders: top-left press = `MUTE`, top-right press = `PLAY/PAUSE`, rotation = volume/page/track/brightness
 
 ### Thumb Placement Philosophy
@@ -127,7 +129,7 @@ Right half
 | Row    | Col 1  | Col 2  | Col 3 | Col 4   | Col 5  |
 | ------ | ------ | ------ | ----- | ------- | ------ |
 | Top    | `RALT` | `HOME` | `END` |         | `PGUP` |
-| Home   | `LEFT` | `DOWN` ① | `UP` ①② | `RIGHT` ② |        |
+| Home   | `LEFT` | `DOWN` ① | `UP` ①② | `RIGHT` ② | `TMX`  |
 | Bottom |        | `TAB`  | `DEL` |         | `PGDN` |
 
 Word-navigation chords (press the marked keys together):
@@ -266,7 +268,7 @@ Right half
 - `CMD+R` (reload) sits on the home row inner column
 - Left-hand `CMD` shortcuts exist on both layers: tap `Mod/Ext` for a one-shot (`MOD`), hold for repeats and `SWAP` cycling (`EXT`)
 - `HYP` = Hyper (`Ctrl+Alt+Cmd+Shift`)
-- `TMX` = tmux prefix (`Ctrl+Space`)
+- `TMX` = tmux prefix (`Ctrl+Space`), available on both `MOD` and `EXT`
 - `RALT` = Right Alt (used for VoiceInk speech-to-text)
 - `ML` = Mouseless trigger (`Hyper+Enter`); its position sends `` CMD+` `` on `MOD`/`EXT`
 - `BT 0`–`BT 4` = directly select Bluetooth profile slots 0–4
