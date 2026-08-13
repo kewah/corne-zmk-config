@@ -8,22 +8,21 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
 
 - Base layer uses Graphite.
 - Only the inner 5 columns per half are used for alpha/layer keys. Extra keys are mapped as follows:
-  - Middle-row left outer carries `mouseless` on `BASE` and `` CMD+` `` on `MOD`/`EXT`.
-  - Middle-row right outer, top-row outer keys, and bottom-row outer keys are unused.
+  - Middle-row left outer carries `Esc/Shift` on `BASE` and `` CMD+` `` on `MOD`/`EXT`.
+  - Middle-row right outer carries `mouseless` on `BASE`; top-row and bottom-row outer keys are unused.
   - The two top center keys are encoder presses; the remaining center keys are unused.
 - The layer diagrams omit unused extra keys unless one is used on that layer.
 - `Mod/Ext` is the main layer key:
   - tap = sticky `MOD`
   - hold = `EXT`
 - The remaining thumb keys are organized by role:
-  - tap `Esc/Shift` for Escape; hold it for Shift
+  - tap the far-left `Esc/Shift` for Escape; hold it for Shift
   - tap `Sym` or `Num` for one sticky layer key; hold for a sequence
-  - `Enter` and `Space` are dedicated, normally repeatable keys
-  - hold `Esc/Shift` with the left thumb and tap `Enter` with the right thumb for Shift+Enter
+  - `Backspace`, `Enter`, and `Space` are dedicated, normally repeatable keys
+  - hold `Esc/Shift` and tap `Backspace` for Delete
+  - hold `Esc/Shift` and tap `Enter` for Shift+Enter
   - tap or hold `Mod/Ext`, then tap `Enter` for an alternate resting-thumb Shift+Enter chord
-- `Backspace` occupies the Space position on both `MOD` and `EXT`:
-  - tap `Mod/Ext`, then tap Space for a one-shot edit
-  - hold `Mod/Ext`, then hold Space for normal key repeat
+- `Backspace` and `Space` keep their base behavior on `MOD` and `EXT`.
 - `Delete` is available on the `EXT` comma position.
 - `EXT` left half is a one-handed mouse companion: app switching, tab cycling, window cycling, back/forward, close, select all, undo/cut/copy/paste while the right hand stays on the mouse.
 - `MF` is a momentary thumb-chord layer:
@@ -41,7 +40,7 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
 
 ### Thumb Placement Philosophy
 
-`Mod/Ext` and `Space` occupy the middle resting positions. `Sym` and `Num` mirror each other on the inner thumbs, while `Esc/Shift` and `Enter` mirror each other on the outer thumbs for a simple two-thumb Shift+Enter chord. Enter and Space stay dedicated and repeatable, and the layer triggers consistently use sticky tap and momentary hold.
+`Mod/Ext` and `Space` occupy the middle resting positions, while `Sym` and `Num` mirror each other on the inner thumbs. Moving `Esc/Shift` to the far-left outer key gives the left outer thumb to dedicated Backspace without disturbing Enter or the layer triggers. Backspace, Enter, and Space stay dedicated and repeatable.
 
 ## Layer Access
 
@@ -76,13 +75,13 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-| `ESC/SHIFT` | `MOD/EXT`  | `SYM†`     | `NUM†`      | `SPC`        | `RET`       |
+| `BSP/DEL`   | `MOD/EXT`  | `SYM†`     | `NUM†`      | `SPC`        | `RET`       |
 
 Outer keys
 
 | Left outer | Right outer |
 | ---------- | ----------- |
-| `ML`       |             |
+| `ESC/SHIFT` | `ML`       |
 
 ## MOD (tap `Mod/Ext`)
 
@@ -106,13 +105,13 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-|            | `MOD`       |            |             | `BSP`        | `SHIFT+RET` |
+| `BSP/DEL`  | `MOD`       |            |             | `SPC`        | `SHIFT+RET` |
 
 Outer keys
 
 | Left outer | Right outer |
 | ---------- | ----------- |
-| `` CMD+` `` |             |
+| `` CMD+` `` | `ML`        |
 
 ## EXT (hold `Mod/Ext`)
 
@@ -143,7 +142,7 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-|            | `EXT`       |            |             | `BSP`        | `SHIFT+RET` |
+| `BSP/DEL`  | `EXT`       |            |             | `SPC`        | `SHIFT+RET` |
 
 Outer keys
 
@@ -180,7 +179,7 @@ Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-|            |             | `SYM`      | `NUM†`      | `SPC`        | `RET`       |
+| `BSP/DEL`  |             | `SYM`      | `NUM†`      | `SPC`        | `RET`       |
 
 ## NUM (tap `Num` for sticky; hold for momentary)
 
@@ -246,10 +245,8 @@ Right half
 
 - `X/Y` = tap `X`, hold `Y`
 - `SYM†`, `NUM†` = tap for a sticky one-key layer, hold for a momentary layer
-- `BSP` on `MOD` and `EXT`:
-  - tap `Mod/Ext`, then tap `Space` for one Backspace
-  - hold `Mod/Ext`, then hold `Space` for repeating Backspace
-- `SHIFT+RET` on `MOD` and `EXT` provides Shift+Enter from the same layer trigger used for Backspace.
+- `BSP/DEL` sends Backspace normally and Delete while either Shift is active.
+- `SHIFT+RET` on `MOD` and `EXT` provides the alternate resting-thumb Shift+Enter chord.
 - `DEL` is on the `EXT` comma position.
 - `SHIFT*`, `ALT*`, `CTRL*`, `CMD*`, `HYP*` on `MOD`:
   - tap = sticky modifier
@@ -270,7 +267,7 @@ Right half
 - `HYP` = Hyper (`Ctrl+Alt+Cmd+Shift`)
 - `TMX` = tmux prefix (`Ctrl+Space`), available on both `MOD` and `EXT`
 - `RALT` = Right Alt (used for VoiceInk speech-to-text)
-- `ML` = Mouseless trigger (`Hyper+Enter`); its position sends `` CMD+` `` on `MOD`/`EXT`
+- `ML` = Mouseless trigger (`Hyper+Enter`)
 - `BT 0`–`BT 4` = directly select Bluetooth profile slots 0–4
 - `BT CLR` = clear Bluetooth bonds
 - `BT NXT` / `BT PRV` = switch Bluetooth profile
@@ -280,8 +277,8 @@ Right half
 - `RGB SAI` / `RGB SAD` = increase/decrease saturation
 - `RGB BRI` / `RGB BRD` = increase/decrease brightness
 - `RGB EFF` = cycle RGB effect
-- Middle-row left outer key = `ML` on `BASE`, `` CMD+` `` on `MOD`/`EXT`
-- Middle-row right outer key, top-row outer keys, and bottom-row outer keys are unused
+- Middle-row left outer key = `Esc/Shift` on `BASE`, `` CMD+` `` on `MOD`/`EXT`
+- Middle-row right outer key = `ML` on `BASE`/`MOD`; top-row and bottom-row outer keys are unused
 
 ## Bluetooth Recovery
 
