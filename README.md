@@ -165,15 +165,15 @@ Right half
 | Row    | Col 1  | Col 2 | Col 3 | Col 4 | Col 5 |
 | ------ | ------ | ----- | ----- | ----- | ----- |
 | Top    | `~`    | `@`   | `` ` `` | `#`   | `$`   |
-| Home   | `-`    | `(` ① | `{` ① | `[`   | `:`   |
-| Bottom | `_`    | `)` ② | `}` ② | `]`   | `;`   |
+| Home   | `-`    | `(` ① | `<` ① | `[`   | `:`   |
+| Bottom | `_`    | `)` ② | `>` ② | `]`   | `;`   |
 
-Angle-bracket chords (press the marked keys together):
+Brace chords (press the marked keys together):
 
 | Chord | Output |
 | ----- | ------ |
-| ① `(` + `{` | `<` |
-| ② `)` + `}` | `>` |
+| ① `(` + `<` | `{` |
+| ② `)` + `>` | `}` |
 
 Thumbs
 
@@ -297,8 +297,8 @@ If Bluetooth stops working after a firmware change:
 | ----- | --------- | ---------------------- |
 | EXT   | `H` + `A` | Opt+Left (word left)   |
 | EXT   | `A` + `E` | Opt+Right (word right) |
-| SYM   | `(` + `{` | `<`                    |
-| SYM   | `)` + `}` | `>`                    |
+| SYM   | `(` + `<` | `{`                    |
+| SYM   | `)` + `>` | `}`                    |
 
 ## Encoders
 
