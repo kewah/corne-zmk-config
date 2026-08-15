@@ -205,20 +205,20 @@
             layers = <SYM>;
         };
 
-        // The mirrored inner layer thumbs open Media/Function together.
-        // Media/Function: SYM + NUM (Corne positions 42 + 43)
+        // The mirrored outer layer thumbs open Media/Function together.
+        // Media/Function: SYM + NUM (Corne positions 40 + 45)
         combo_mf_layer_thumbs {
             timeout-ms = <100>;
-            key-positions = <42 43>;
+            key-positions = <40 45>;
             bindings = <&mo MF>;
             layers = <BASE>;
         };
 
-        // MOD/EXT + the right inner NUM key is reserved for maintenance.
-        // BT layer: Corne positions 41 + 43.
+        // MOD/EXT + the right outer NUM key is reserved for maintenance.
+        // BT layer: Corne positions 41 + 45.
         combo_bt {
             timeout-ms = <100>;
-            key-positions = <41 43>;
+            key-positions = <41 45>;
             bindings = <&mo BT>;
             layers = <BASE>;
         };
@@ -236,7 +236,7 @@
             &esc_shift LSHFT ESC &kp N       &kp R        &kp T        &kp S     &kp G    &none  &none    &kp Y       &kp H        &kp A        &kp E        &kp I     &mouseless
         //  ┌─extra─┐                                                                                                                                      ┌─extra─┐
             &none     &kp Q        &kp X        &kp M        &kp C     &kp V                    &kp K       &kp P        &comma_qmark &dot_excl    &slash_bslash &none
-                                          &backspace_delete      &ext_mod EXT MOD  &sticky_layer SYM                    &sticky_layer NUM  &kp SPACE  &kp RET
+                                          &sticky_layer SYM      &ext_mod EXT MOD  &backspace_delete                    &kp RET  &kp SPACE  &sticky_layer NUM
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
         };
@@ -247,7 +247,7 @@
             &none        &kp LG(LBKT)  &kp LC(TAB)  &quick_swap  &kp LG(W)    &kp LG(Z)        &trans &trans &trans       &trans       &trans       &trans       &trans       &none
             &kp LG(GRAVE) &hm LSHFT LSHFT &hm LALT LALT &hm LCTRL LCTRL &hm LGUI LGUI &kp LG(R) &trans &trans &trans &hm HYPER_MOD HYPER_MOD &trans &trans &tmx &trans
             &none        &kp LG(RBKT)  &kp LG(X)    &kp LG(A)    &kp LG(C)    &kp LG(V)                     &trans       &trans       &trans       &trans       &trans       &none
-                                             &trans       &trans       &trans                     &trans       &trans       &kp LS(RET)
+                                             &trans       &trans       &trans                     &kp LS(RET)  &trans       &trans
             >;
         };
 
@@ -257,7 +257,7 @@
             &none        &kp LG(LBKT)  &tab_swapper &swapper     &kp LG(W)    &kp LG(Z)        &trans &trans &kp RALT     &kp HOME     &kp END      &none        &kp PG_UP    &none
             &kp LG(GRAVE) &sk LSHFT     &sk LALT     &sk LCTRL    &sk LGUI     &kp LG(R)        &trans &trans &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &tmx         &none
             &none        &kp LG(RBKT)  &kp LG(X)    &kp LG(A)    &kp LG(C)    &kp LG(V)                     &none        &kp TAB      &kp DEL      &none        &kp PG_DN    &none
-                                             &trans       &trans       &trans                      &trans       &trans       &kp LS(RET)
+                                             &trans       &trans       &trans                      &kp LS(RET)  &trans       &trans
             >;
         };
 
