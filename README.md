@@ -8,7 +8,7 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
 
 - Base layer uses Graphite.
 - Only the inner 5 columns per half are used for alpha/layer keys. Extra keys are mapped as follows:
-  - Middle-row left outer carries `Esc/Shift` on `BASE` and `` CMD+` `` on `MOD`/`EXT`.
+  - Middle-row left outer carries `Esc/Shift` on `BASE`, `ESC` on `MOD`, and `` CMD+` `` on `EXT`.
   - Middle-row right outer carries `mouseless` on `BASE`; top-row and bottom-row outer keys are unused.
   - The two top center keys are encoder presses; the remaining center keys are unused.
 - The layer diagrams omit unused extra keys unless one is used on that layer.
@@ -111,7 +111,7 @@ Outer keys
 
 | Left outer | Right outer |
 | ---------- | ----------- |
-| `` CMD+` `` | `ML`        |
+| `ESC`      | `ML`        |
 
 ## EXT (hold `Mod/Ext`)
 
@@ -277,7 +277,7 @@ Right half
 - `RGB SAI` / `RGB SAD` = increase/decrease saturation
 - `RGB BRI` / `RGB BRD` = increase/decrease brightness
 - `RGB EFF` = cycle RGB effect
-- Middle-row left outer key = `Esc/Shift` on `BASE`, `` CMD+` `` on `MOD`/`EXT`
+- Middle-row left outer key = `Esc/Shift` on `BASE`, `ESC` on `MOD`, and `` CMD+` `` on `EXT`
 - Middle-row right outer key = `ML` on `BASE`/`MOD`; top-row and bottom-row outer keys are unused
 
 ## Bluetooth Recovery
