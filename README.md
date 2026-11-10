@@ -1,323 +1,62 @@
-# Corne Choc Pro ZMK Config
+# Corne Choc Pro Layout
 
 Personal ZMK firmware configuration for the Corne Choc Pro split keyboard.
 
 Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://github.com/callum-oakley/qmk_firmware/tree/master/users/callum#readme).
 
-## Layout Notes
-
-- Base layer uses Graphite.
-- Only the inner 5 columns per half are used for alpha/layer keys. Extra keys are mapped as follows:
-  - Top-row left outer is `ESC` on `BASE` and `MOD`, and `` CMD+` `` on `EXT`.
-  - Home-row left outer is sticky `SYM`.
-  - Home-row right outer is sticky `NUM`.
-  - Bottom-row left outer stays `SHIFT` on `BASE`.
-  - Top-row right outer and bottom-row right outer stay unused on `BASE`.
-  - The two top center keys are encoder presses; the remaining center keys are unused.
-- The layer diagrams omit unused extra keys unless one is used on that layer.
-- `Mod/Ext` is the main layer key:
-  - tap = sticky `MOD`
-  - hold = `EXT`
-- The thumb keys are organized by role:
-  - tap `Sym` or `Num` for one sticky layer key; hold for a sequence
-  - `Backspace`, `Enter`, and `Space` are dedicated, normally repeatable keys
-  - hold the dedicated `Shift` below `Sym` and tap `Backspace` for Delete
-  - hold `Shift` and tap `Enter` for Shift+Enter
-  - tap or hold `Mod/Ext`, then tap `Enter` for an alternate resting-thumb Shift+Enter chord
-- `Backspace` and `Space` keep their base behavior on `MOD`, `EXT`, `SYM`, and `NUM`.
-- `Delete` is available on the `EXT` comma position.
-- `EXT` left half is a one-handed mouse companion: app switching, tab cycling, window cycling, back/forward, close, select all, undo/cut/copy/paste while the right hand stays on the mouse.
-- `MF` is a momentary thumb-chord layer:
-  - hold both outer layer thumbs (`Sym` + `Num`) = `MF`
-- `BT` is a momentary thumb-chord layer:
-  - hold `Mod/Ext` + `Num` = `BT`
-- `MOD`, `SYM`, and `NUM` home-row modifiers are hybrid modifiers:
-  - tap = sticky mod
-  - hold = normal held mod
-- Sticky `SYM` and `NUM` remain active while modifiers are entered, then release on the shortcut key. For example, tap `NUM`, tap `CTRL*` and `SHIFT*`, then tap `1` for Ctrl+Shift+1.
-- `TMX` on `MOD` and `EXT` sends the tmux prefix (`Ctrl+Space`):
-  - tap `Mod/Ext`, tap `TMX`, then tap a base key for the existing sticky-MOD workflow
-  - hold `Mod/Ext`, tap `TMX`, tap `Tab`, then release `Mod/Ext` to switch tmux panels
-- Encoders: top-left press = `MUTE`, top-right press = `PLAY/PAUSE`, rotation = volume/page/track/brightness
-
-### Thumb Placement Philosophy
-
-`Mod/Ext` and `Space` occupy the middle resting positions. `Backspace` and `Enter` mirror each other on the inner thumbs nearest the split, while `Sym` and `Num` mirror each other on the outer thumbs. Backspace, Enter, and Space stay dedicated and repeatable.
-
-## Layer Access
-
-| Layer | Access                                       |
-| ----- | -------------------------------------------- |
-| MOD   | tap `Mod/Ext`                                |
-| EXT   | hold `Mod/Ext`                               |
-| SYM   | tap `Sym` for sticky; hold for momentary     |
-| NUM   | tap `Num` for sticky; hold for momentary     |
-| MF    | hold both outer thumbs (`Sym` + `Num`)       |
-| BT    | hold `Mod/Ext` + `Num`                       |
-
-## BASE (Graphite)
-
-Left half
-
-| Row    | Col 1 | Col 2 | Col 3 | Col 4 | Col 5 |
-| ------ | ----- | ----- | ----- | ----- | ----- |
-| Top    | `B`   | `L`   | `D`   | `W`   | `Z`   |
-| Home   | `N`   | `R`   | `T`   | `S`   | `G`   |
-| Bottom | `Q`   | `X`   | `M`   | `C`   | `V`   |
-
-Right half
-
-| Row    | Col 1 | Col 2 | Col 3 | Col 4 | Col 5 |
-| ------ | ----- | ----- | ----- | ----- | ----- |
-| Top    | `'/"` | `F`   | `O`   | `U`   | `J`   |
-| Home   | `Y`   | `H`   | `A`   | `E`   | `I`   |
-| Bottom | `K`   | `P`   | `,/?` | `./!` | `/\`  |
-
-Thumbs
-
-| Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
-| ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-| `SYM†`      | `MOD/EXT`  | `BSP/DEL`  | `RET`       | `SPC`        | `NUM†`      |
-
-Outer keys
-
-| Row    | Left outer | Right outer |
-| ------ | ---------- | ----------- |
-| Top    | `ESC`      |             |
-| Home   | `SYM†`     | `NUM†`      |
-| Bottom | `SHIFT`    |             |
-
-## MOD (tap `Mod/Ext`)
-
-Left half
-
-| Row    | Col 1   | Col 2     | Col 3  | Col 4  | Col 5   |
-| ------ | ------- | --------- | ------ | ------ | ------- |
-| Top    | `CMD+[` | `CTRL+TAB` | `QSWAP` | `CMD+W` | `CMD+Z` |
-| Home   | `SHIFT*` | `ALT*`   | `CTRL*` | `CMD*` | `CMD+R` |
-| Bottom | `CMD+]` | `CMD+X`   | `CMD+A` | `CMD+C` | `CMD+V` |
+- `—` = disabled. `·` = transparent and uses the lower active layer.
+- `*` = tap for a sticky modifier, hold for a held modifier. `†` = sticky modifier.
+- `/` separates the normal output from the shifted output.
+- Hyper = Ctrl+Alt+Cmd+Shift.
+- `Bksp/Del` sends Backspace. It sends Delete while Shift is held.
 
-Right half
-
-| Row    | Col 1 | Col 2  | Col 3 | Col 4 | Col 5 |
-| ------ | ----- | ------ | ----- | ----- | ----- |
-| Top    |       |        |       |       |       |
-| Home   |       | `HYP*` |       |       | `TMX` |
-| Bottom |       |        |       |       |       |
+Regenerate the pictures with `python3 docs/generate_layouts.py` after a keymap edit.
 
-Thumbs
+## BASE
 
-| Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
-| ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-|            | `MOD`       | `BSP/DEL`  | `SHIFT+RET` | `SPC`        |             |
+Graphite. Tap SYM or NUM for one sticky layer key. Hold either key to keep the layer. The same two keys sit on the home pinkies and on the outer thumbs.
 
-Outer keys
+Hold both outer thumbs for MF. Hold Mod/Ext and the NUM thumb for BT.
 
-| Row    | Left outer | Right outer |
-| ------ | ---------- | ----------- |
-| Top    | `ESC`      |             |
+The bottom-left pinky is Shift. Hold it and tap Backspace for Delete.
 
-## EXT (hold `Mod/Ext`)
+![BASE layout](docs/layouts/base.svg)
 
-Left half
+## MOD
 
-| Row    | Col 1   | Col 2  | Col 3 | Col 4  | Col 5   |
-| ------ | ------- | ------ | ----- | ------ | ------- |
-| Top    | `CMD+[` | `TSWAP` | `SWAP` | `CMD+W` | `CMD+Z` |
-| Home   | `SHIFT†` | `ALT†` | `CTRL†` | `CMD†` | `CMD+R` |
-| Bottom | `CMD+]` | `CMD+X` | `CMD+A` | `CMD+C` | `CMD+V` |
+Tap Mod/Ext. QSWAP sends Cmd+Tab and releases Cmd immediately.
 
-Right half
+![MOD layout](docs/layouts/mod.svg)
 
-| Row    | Col 1  | Col 2  | Col 3 | Col 4   | Col 5  |
-| ------ | ------ | ------ | ----- | ------- | ------ |
-| Top    | `RALT` | `HOME` | `END` |         | `PGUP` |
-| Home   | `LEFT` | `DOWN` ① | `UP` ①② | `RIGHT` ② | `TMX`  |
-| Bottom |        | `TAB`  | `DEL` |         | `PGDN` |
+## EXT
 
-Word-navigation chords (press the marked keys together):
+Hold Mod/Ext. SWAP holds Cmd and sends Tab. TSWAP holds Ctrl and sends Tab. Tap the home-row sticky Shift to reverse either switcher. TMX sends Ctrl+Space. H+A sends Opt+Left. A+E sends Opt+Right.
 
-| Chord | Base positions | Output |
-| ----- | -------------- | ------ |
-| ① `DOWN` + `UP` | `H` + `A` | Opt+Left |
-| ② `UP` + `RIGHT` | `A` + `E` | Opt+Right |
+![EXT layout](docs/layouts/ext.svg)
 
-Thumbs
+## SYM
 
-| Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
-| ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-|            | `EXT`       | `BSP/DEL`  | `SHIFT+RET` | `SPC`        |             |
+Tap Sym for a sticky layer. Hold Sym to keep it. Press `(` and `<` together for `{`. Press `)` and `>` together for `}`. The right pinky also has those braces on their own keys.
 
-Outer keys
+![SYM layout](docs/layouts/sym.svg)
 
-| Row    | Left outer | Right outer |
-| ------ | ---------- | ----------- |
-| Top    | `` CMD+` `` |             |
+## NUM
 
-## SYM (tap `Sym` for sticky; hold for momentary)
+Tap Num for a sticky layer. Hold Num to keep it.
 
-Left half
+![NUM layout](docs/layouts/num.svg)
 
-| Row    | Col 1   | Col 2 | Col 3  | Col 4 | Col 5 |
-| ------ | ------- | ----- | ------ | ----- | ----- |
-| Top    |         | `^`   | `&`    | `\|`  |       |
-| Home   | `SHIFT*` | `ALT*` | `CTRL*` | `CMD*` | `HYP*` |
-| Bottom |         |       |        |       |       |
+## MF
 
-Right half
+Hold both outer thumbs, Sym and Num.
 
-| Row    | Col 1  | Col 2 | Col 3 | Col 4 | Col 5 |
-| ------ | ------ | ----- | ----- | ----- | ----- |
-| Top    | `~`    | `@`   | `` ` `` | `#`   | `$`   |
-| Home   | `-`    | `(` ① | `<` ① | `[`   | `:`   |
-| Bottom | `_`    | `)` ② | `>` ② | `]`   | `;`   |
+![MF layout](docs/layouts/mf.svg)
 
-Brace chords (press the marked keys together):
+## BT
 
-| Chord | Output |
-| ----- | ------ |
-| ① `(` + `<` | `{` |
-| ② `)` + `>` | `}` |
+Hold Mod/Ext and the Num thumb.
 
-Thumbs
-
-| Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
-| ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-| `SYM`      |             | `BSP/DEL`  | `RET`       | `SPC`        | `NUM†`      |
-
-Outer keys
-
-| Row    | Left outer | Right outer |
-| ------ | ---------- | ----------- |
-| Home   |            | `{`         |
-| Bottom |            | `}`         |
-
-## NUM (tap `Num` for sticky; hold for momentary)
-
-Left half
-
-| Row    | Col 1 | Col 2 | Col 3 | Col 4 | Col 5 |
-| ------ | ----- | ----- | ----- | ----- | ----- |
-| Top    | `/`   | `7`   | `8`   | `9`   | `%`   |
-| Home   | `-`   | `1`   | `2`   | `3`   | `+`   |
-| Bottom | `:`   | `4`   | `5`   | `6`   | `*`   |
-
-Right half
-
-| Row    | Col 1 | Col 2 | Col 3  | Col 4 | Col 5   |
-| ------ | ----- | ----- | ------ | ----- | ------- |
-| Top    |       |       |        |       |         |
-| Home   | `HYP*` | `CMD*` | `CTRL*` | `ALT*` | `SHIFT*` |
-| Bottom |       | `=`   | `,`    |       |         |
-
-Thumbs
-
-| Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
-| ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
-| `.`        | `0`         | `BSP/DEL`  | `RET`       | `SPC`        | `NUM`       |
-
-Outer keys
-
-| Row    | Left outer | Right outer |
-| ------ | ---------- | ----------- |
-| Home   | `_`        |             |
-
-## MF (hold both outer layer thumbs: `Sym` + `Num`)
-
-Left half
-
-| Row    | Col 1  | Col 2        | Col 3  | Col 4  | Col 5 |
-| ------ | ------ | ------------ | ------ | ------ | ----- |
-| Top    |        | `MUTE`       | `VOL-` | `VOL+` |       |
-| Home   | `STOP` | `PLAY/PAUSE` | `PREV` | `NEXT` |       |
-| Bottom |        | `BRI-`       | `BRI+` |        |       |
-
-Right half
-
-| Row    | Col 1 | Col 2 | Col 3 | Col 4 | Col 5 |
-| ------ | ----- | ----- | ----- | ----- | ----- |
-| Top    | `F12` | `F7`  | `F8`  | `F9`  |       |
-| Home   | `F10` | `F1`  | `F2`  | `F3`  |       |
-| Bottom | `F11` | `F4`  | `F5`  | `F6`  |       |
-
-## BT (hold `Mod/Ext` + `Num`)
-
-Left half
-
-| Row    | Col 1    | Col 2     | Col 3     | Col 4  | Col 5    |
-| ------ | -------- | --------- | --------- | ------ | -------- |
-| Top    | `BT CLR` | `OUT USB` | `OUT BLE` |        |          |
-| Home   | `BT PRV` | `BT 0`    | `BT 1`    | `BT 2` | `BT NXT` |
-| Bottom |          | `BT 3`    | `BT 4`    |        |          |
-
-Right half
-
-| Row    | Col 1     | Col 2     | Col 3     | Col 4     | Col 5     |
-| ------ | --------- | --------- | --------- | --------- | --------- |
-| Top    | `RGB TOG` | `RGB HUI` | `RGB HUD` | `RGB BRI` | `RGB BRD` |
-| Home   | `RGB EFF` | `RGB SAI` | `RGB SAD` |           |           |
-| Bottom |           |           |           |           |           |
-
-## Legend
-
-- `X/Y` = tap `X`, hold `Y`
-- `SYM†`, `NUM†` = tap for a sticky one-key layer, hold for a momentary layer
-- `BSP/DEL` sends Backspace normally and Delete while either Shift is active.
-- `SHIFT+RET` on `MOD` and `EXT` provides the alternate resting-thumb Shift+Enter chord.
-- `DEL` is on the `EXT` comma position.
-- `SHIFT*`, `ALT*`, `CTRL*`, `CMD*`, `HYP*` on `MOD`:
-  - tap = sticky modifier
-  - hold = normal held modifier
-- `SHIFT*`, `ALT*`, `CTRL*`, `CMD*`, `HYP*` on `SYM` and `NUM` use the same tap/hold behavior as `MOD`, so modifier muscle memory carries across all three layers.
-- `SHIFT†`, `ALT†`, `CTRL†`, `CMD†` on `EXT`:
-  - sticky modifiers (tap to activate, auto-release after next keypress)
-  - stackable: tap multiple to combine (e.g., `CMD†` then `SHIFT†` then `F` = Cmd+Shift+F)
-- `SWAP` = Cmd+Tab app switcher (tri-state): tap to open the macOS switcher and advance, Cmd stays held across taps, tap `SHIFT†` to cycle backward, release `Mod/Ext` (or press any other key) to commit
-- `QSWAP` = instant switch to previous app (Cmd+Tab with immediate release, no switcher UI), same key as `SWAP`
-- `TSWAP` = Ctrl+Tab tab switcher (tri-state): holds Ctrl across taps so the browser tab switcher stays up, tap `SHIFT†` to reverse (Ctrl+Shift+Tab), release `Mod/Ext` to commit. Sits beside `SWAP`
-- `CTRL+TAB` on `MOD` = plain one-shot Ctrl+Tab, same key position as `TSWAP`
-- `CMD+[` / `CMD+]` = back / forward
-- `CMD+Z/X/C/V/W` sit on their Graphite letter positions as mnemonics
-- `CMD+A` (select all) sits left of `CMD+C` to cluster select/copy/paste for one-handed use
-- `CMD+R` (reload) sits on the home row inner column
-- Left-hand `CMD` shortcuts exist on both layers: tap `Mod/Ext` for a one-shot (`MOD`), hold for repeats and `SWAP` cycling (`EXT`)
-- `HYP` = Hyper (`Ctrl+Alt+Cmd+Shift`)
-- `TMX` = tmux prefix (`Ctrl+Space`), available on both `MOD` and `EXT`
-- `RALT` = Right Alt (used for VoiceInk speech-to-text)
-- `BT 0`–`BT 4` = directly select Bluetooth profile slots 0–4
-- `BT CLR` = clear Bluetooth bonds
-- `BT NXT` / `BT PRV` = switch Bluetooth profile
-- `OUT USB` / `OUT BLE` = explicitly select USB or Bluetooth output
-- `RGB TOG` = toggle RGB underglow on/off
-- `RGB HUI` / `RGB HUD` = increase/decrease hue
-- `RGB SAI` / `RGB SAD` = increase/decrease saturation
-- `RGB BRI` / `RGB BRD` = increase/decrease brightness
-- `RGB EFF` = cycle RGB effect
-- Top-row left outer key = `ESC` on `BASE` and `MOD`, and `` CMD+` `` on `EXT`
-- Home-row left outer key = sticky `SYM`
-- Home-row right outer key = sticky `NUM`
-- Bottom-row left outer key = dedicated `SHIFT` on `BASE`
-- Top-row right outer key and bottom-row right outer key stay unused on `BASE`
-
-## Bluetooth Recovery
-
-If Bluetooth stops working after a firmware change:
-
-1. Forget the keyboard in macOS Bluetooth settings.
-2. Hold `Mod/Ext` + `Num` to reach `BT`.
-3. Press `BT CLR`.
-4. Use `BT 0`–`BT 4` to jump directly to the host profile you want, or `BT NXT` / `BT PRV` to cycle.
-5. If the board is on the wrong output, press `OUT BLE` or `OUT USB`.
-6. If that still does not recover it, flash the `settings_reset` UF2 to both halves, then re-flash the normal left/right firmware.
-
-## Combos
-
-| Layer | Keys      | Output                 |
-| ----- | --------- | ---------------------- |
-| EXT   | `H` + `A` | Opt+Left (word left)   |
-| EXT   | `A` + `E` | Opt+Right (word right) |
-| SYM   | `(` + `<` | `{`                    |
-| SYM   | `)` + `>` | `}`                    |
+![BT layout](docs/layouts/bt.svg)
 
 ## Encoders
 
@@ -328,13 +67,24 @@ If Bluetooth stops working after a firmware change:
 | Bottom-left  | —            | Track prev/next    |
 | Bottom-right | —            | Brightness down/up |
 
+## Bluetooth recovery
+
+If Bluetooth stops working after a firmware change:
+
+1. Forget the keyboard in macOS Bluetooth settings.
+2. Hold Mod/Ext and Num to reach BT.
+3. Press BT CLR.
+4. Use BT 0 through BT 4 to select a profile, or BT Prev and BT Next to cycle.
+5. If the board is on the wrong output, press OUT BLE or OUT USB.
+6. If that still fails, flash the `settings_reset` UF2 to both halves, then flash the normal firmware again.
+
 ## Build
 
-Push to GitHub → Actions tab → Download `firmware.zip`.
+Push to GitHub. Open the Actions tab. Download `firmware.zip`.
 
 ## Flash
 
-1. Connect keyboard half via USB.
-2. Double-tap reset button (enters bootloader).
-3. Copy `.uf2` file to mounted USB drive.
-4. Repeat for other half.
+1. Connect one half by USB.
+2. Double-tap the reset button to enter the bootloader.
+3. Copy the `.uf2` file to the mounted drive.
+4. Repeat for the other half.
