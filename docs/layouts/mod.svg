@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1392" height="332" viewBox="0 0 1392 332" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="332" viewBox="0 0 1140 332" role="img" aria-labelledby="title desc">
 <title id="title">MOD layer</title>
-<desc id="desc">Full 46-key Corne layout in keyboard viewing order. Both halves, the center keys, and the thumb row are shown, including disabled keys.</desc>
-<rect width="1392" height="332" rx="16" fill="#0f172a"/>
+<desc id="desc">42-key Corne layout in keyboard viewing order. The four optional pads between the halves are omitted.</desc>
+<rect width="1140" height="332" rx="16" fill="#0f172a"/>
 <g font-family="system-ui, sans-serif" text-anchor="middle">
 <text x="276" y="32" fill="#94a3b8" font-size="14">LEFT</text>
-<text x="1116" y="32" fill="#94a3b8" font-size="14">RIGHT</text>
+<text x="864" y="32" fill="#94a3b8" font-size="14">RIGHT</text>
 <g data-position="0" data-binding="&amp;kp ESC">
 <title>Position 0: &amp;kp ESC</title>
 <rect x="24" y="52" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
@@ -35,45 +35,35 @@
 <rect x="444" y="52" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
 <text x="482" y="83" fill="#f1f5f9" font-size="18">Cmd+Z</text>
 </g>
-<g data-position="6" data-binding="&amp;trans">
-<title>Position 6: &amp;trans</title>
+<g data-position="8" data-binding="&amp;trans">
+<title>Position 8: &amp;trans</title>
 <rect x="612" y="52" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
 <text x="650" y="83" fill="#a5f3fc" font-size="18">·</text>
 </g>
-<g data-position="7" data-binding="&amp;trans">
-<title>Position 7: &amp;trans</title>
+<g data-position="9" data-binding="&amp;trans">
+<title>Position 9: &amp;trans</title>
 <rect x="696" y="52" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
 <text x="734" y="83" fill="#a5f3fc" font-size="18">·</text>
 </g>
-<g data-position="8" data-binding="&amp;trans">
-<title>Position 8: &amp;trans</title>
-<rect x="864" y="52" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="902" y="83" fill="#a5f3fc" font-size="18">·</text>
-</g>
-<g data-position="9" data-binding="&amp;trans">
-<title>Position 9: &amp;trans</title>
-<rect x="948" y="52" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="986" y="83" fill="#a5f3fc" font-size="18">·</text>
-</g>
 <g data-position="10" data-binding="&amp;trans">
 <title>Position 10: &amp;trans</title>
-<rect x="1032" y="52" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="1070" y="83" fill="#a5f3fc" font-size="18">·</text>
+<rect x="780" y="52" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
+<text x="818" y="83" fill="#a5f3fc" font-size="18">·</text>
 </g>
 <g data-position="11" data-binding="&amp;trans">
 <title>Position 11: &amp;trans</title>
-<rect x="1116" y="52" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="1154" y="83" fill="#a5f3fc" font-size="18">·</text>
+<rect x="864" y="52" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
+<text x="902" y="83" fill="#a5f3fc" font-size="18">·</text>
 </g>
 <g data-position="12" data-binding="&amp;trans">
 <title>Position 12: &amp;trans</title>
-<rect x="1200" y="52" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="1238" y="83" fill="#a5f3fc" font-size="18">·</text>
+<rect x="948" y="52" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
+<text x="986" y="83" fill="#a5f3fc" font-size="18">·</text>
 </g>
 <g data-position="13" data-binding="&amp;none">
 <title>Position 13: &amp;none</title>
-<rect x="1284" y="52" width="76" height="50" rx="8" fill="#131e31" stroke="#28364b"/>
-<text x="1322" y="83" fill="#64748b" font-size="18">—</text>
+<rect x="1032" y="52" width="76" height="50" rx="8" fill="#131e31" stroke="#28364b"/>
+<text x="1070" y="83" fill="#64748b" font-size="18">—</text>
 </g>
 <g data-position="14" data-binding="&amp;trans">
 <title>Position 14: &amp;trans</title>
@@ -105,45 +95,35 @@
 <rect x="444" y="120" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
 <text x="482" y="151" fill="#f1f5f9" font-size="18">Cmd+R</text>
 </g>
-<g data-position="20" data-binding="&amp;trans">
-<title>Position 20: &amp;trans</title>
+<g data-position="22" data-binding="&amp;trans">
+<title>Position 22: &amp;trans</title>
 <rect x="612" y="120" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
 <text x="650" y="151" fill="#a5f3fc" font-size="18">·</text>
 </g>
-<g data-position="21" data-binding="&amp;trans">
-<title>Position 21: &amp;trans</title>
-<rect x="696" y="120" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="734" y="151" fill="#a5f3fc" font-size="18">·</text>
-</g>
-<g data-position="22" data-binding="&amp;trans">
-<title>Position 22: &amp;trans</title>
-<rect x="864" y="120" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="902" y="151" fill="#a5f3fc" font-size="18">·</text>
-</g>
 <g data-position="23" data-binding="&amp;hm HYPER_MOD HYPER_MOD">
 <title>Position 23: &amp;hm HYPER_MOD HYPER_MOD</title>
-<rect x="948" y="120" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
-<text x="986" y="151" fill="#f1f5f9" font-size="18">Hyper*</text>
+<rect x="696" y="120" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
+<text x="734" y="151" fill="#f1f5f9" font-size="18">Hyper*</text>
 </g>
 <g data-position="24" data-binding="&amp;trans">
 <title>Position 24: &amp;trans</title>
-<rect x="1032" y="120" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="1070" y="151" fill="#a5f3fc" font-size="18">·</text>
+<rect x="780" y="120" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
+<text x="818" y="151" fill="#a5f3fc" font-size="18">·</text>
 </g>
 <g data-position="25" data-binding="&amp;trans">
 <title>Position 25: &amp;trans</title>
-<rect x="1116" y="120" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="1154" y="151" fill="#a5f3fc" font-size="18">·</text>
+<rect x="864" y="120" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
+<text x="902" y="151" fill="#a5f3fc" font-size="18">·</text>
 </g>
 <g data-position="26" data-binding="&amp;tmx">
 <title>Position 26: &amp;tmx</title>
-<rect x="1200" y="120" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
-<text x="1238" y="151" fill="#f1f5f9" font-size="18">TMX</text>
+<rect x="948" y="120" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
+<text x="986" y="151" fill="#f1f5f9" font-size="18">TMX</text>
 </g>
 <g data-position="27" data-binding="&amp;none">
 <title>Position 27: &amp;none</title>
-<rect x="1284" y="120" width="76" height="50" rx="8" fill="#131e31" stroke="#28364b"/>
-<text x="1322" y="151" fill="#64748b" font-size="18">—</text>
+<rect x="1032" y="120" width="76" height="50" rx="8" fill="#131e31" stroke="#28364b"/>
+<text x="1070" y="151" fill="#64748b" font-size="18">—</text>
 </g>
 <g data-position="28" data-binding="&amp;none">
 <title>Position 28: &amp;none</title>
@@ -177,33 +157,33 @@
 </g>
 <g data-position="34" data-binding="&amp;trans">
 <title>Position 34: &amp;trans</title>
-<rect x="864" y="188" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="902" y="219" fill="#a5f3fc" font-size="18">·</text>
+<rect x="612" y="188" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
+<text x="650" y="219" fill="#a5f3fc" font-size="18">·</text>
 </g>
 <g data-position="35" data-binding="&amp;trans">
 <title>Position 35: &amp;trans</title>
-<rect x="948" y="188" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="986" y="219" fill="#a5f3fc" font-size="18">·</text>
+<rect x="696" y="188" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
+<text x="734" y="219" fill="#a5f3fc" font-size="18">·</text>
 </g>
 <g data-position="36" data-binding="&amp;trans">
 <title>Position 36: &amp;trans</title>
-<rect x="1032" y="188" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="1070" y="219" fill="#a5f3fc" font-size="18">·</text>
+<rect x="780" y="188" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
+<text x="818" y="219" fill="#a5f3fc" font-size="18">·</text>
 </g>
 <g data-position="37" data-binding="&amp;trans">
 <title>Position 37: &amp;trans</title>
-<rect x="1116" y="188" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="1154" y="219" fill="#a5f3fc" font-size="18">·</text>
+<rect x="864" y="188" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
+<text x="902" y="219" fill="#a5f3fc" font-size="18">·</text>
 </g>
 <g data-position="38" data-binding="&amp;trans">
 <title>Position 38: &amp;trans</title>
-<rect x="1200" y="188" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="1238" y="219" fill="#a5f3fc" font-size="18">·</text>
+<rect x="948" y="188" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
+<text x="986" y="219" fill="#a5f3fc" font-size="18">·</text>
 </g>
 <g data-position="39" data-binding="&amp;none">
 <title>Position 39: &amp;none</title>
-<rect x="1284" y="188" width="76" height="50" rx="8" fill="#131e31" stroke="#28364b"/>
-<text x="1322" y="219" fill="#64748b" font-size="18">—</text>
+<rect x="1032" y="188" width="76" height="50" rx="8" fill="#131e31" stroke="#28364b"/>
+<text x="1070" y="219" fill="#64748b" font-size="18">—</text>
 </g>
 <g data-position="40" data-binding="&amp;trans">
 <title>Position 40: &amp;trans</title>
@@ -222,17 +202,17 @@
 </g>
 <g data-position="43" data-binding="&amp;kp LS(RET)">
 <title>Position 43: &amp;kp LS(RET)</title>
-<rect x="864" y="256" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
-<text x="902" y="287" fill="#f1f5f9" font-size="11">Shift+Enter</text>
+<rect x="612" y="256" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
+<text x="650" y="287" fill="#f1f5f9" font-size="11">Shift+Enter</text>
 </g>
 <g data-position="44" data-binding="&amp;trans">
 <title>Position 44: &amp;trans</title>
-<rect x="948" y="256" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="986" y="287" fill="#a5f3fc" font-size="18">·</text>
+<rect x="696" y="256" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
+<text x="734" y="287" fill="#a5f3fc" font-size="18">·</text>
 </g>
 <g data-position="45" data-binding="&amp;trans">
 <title>Position 45: &amp;trans</title>
-<rect x="1032" y="256" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="1070" y="287" fill="#a5f3fc" font-size="18">·</text>
+<rect x="780" y="256" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
+<text x="818" y="287" fill="#a5f3fc" font-size="18">·</text>
 </g>
 </g></svg>

@@ -4,21 +4,20 @@ Personal ZMK firmware configuration for the Corne Choc Pro split keyboard.
 
 Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://github.com/callum-oakley/qmk_firmware/tree/master/users/callum#readme).
 
-- `—` = disabled. `·` = transparent and uses the lower active layer.
-- `*` = tap for a sticky modifier, hold for a held modifier. `†` = sticky modifier.
+- `—` is disabled. `·` is transparent and uses the lower active layer.
+- `*` is tap for a sticky modifier, hold for a held modifier. `†` is a sticky modifier.
 - `/` separates the normal output from the shifted output.
-- Hyper = Ctrl+Alt+Cmd+Shift.
-- `Bksp/Del` sends Backspace. It sends Delete while Shift is held.
+- Hyper is Ctrl+Alt+Cmd+Shift.
+- SYM and NUM take a tap for one sticky layer key, or a hold to keep the layer.
+- Bksp/Del sends Backspace, or Delete while Shift is held.
+
+The pictures show the 42 switches. Four matrix pads between the halves are omitted. The top two are the encoder presses. The lower two are unused.
 
 Regenerate the pictures with `python3 docs/generate_layouts.py` after a keymap edit.
 
 ## BASE
 
-Graphite. Tap SYM or NUM for one sticky layer key. Hold either key to keep the layer. The same two keys sit on the home pinkies and on the outer thumbs.
-
-Hold both outer thumbs for MF. Hold Mod/Ext and the NUM thumb for BT.
-
-The bottom-left pinky is Shift. Hold it and tap Backspace for Delete.
+Graphite.
 
 ![BASE layout](docs/layouts/base.svg)
 
@@ -30,25 +29,23 @@ Tap Mod/Ext. QSWAP sends Cmd+Tab and releases Cmd immediately.
 
 ## EXT
 
-Hold Mod/Ext. SWAP holds Cmd and sends Tab. TSWAP holds Ctrl and sends Tab. Tap the home-row sticky Shift to reverse either switcher. TMX sends Ctrl+Space. H+A sends Opt+Left. A+E sends Opt+Right.
+Hold Mod/Ext. SWAP holds Cmd and sends Tab. TSWAP holds Ctrl and sends Tab. Tap the home-row Shift† to reverse either switcher. TMX sends Ctrl+Space. H+A sends Opt+Left. A+E sends Opt+Right.
 
 ![EXT layout](docs/layouts/ext.svg)
 
 ## SYM
 
-Tap Sym for a sticky layer. Hold Sym to keep it. Press `(` and `<` together for `{`. Press `)` and `>` together for `}`. The right pinky also has those braces on their own keys.
+Press `(` and `<` together for `{`. Press `)` and `>` together for `}`.
 
 ![SYM layout](docs/layouts/sym.svg)
 
 ## NUM
 
-Tap Num for a sticky layer. Hold Num to keep it.
-
 ![NUM layout](docs/layouts/num.svg)
 
 ## MF
 
-Hold both outer thumbs, Sym and Num.
+Hold both outer thumbs.
 
 ![MF layout](docs/layouts/mf.svg)
 

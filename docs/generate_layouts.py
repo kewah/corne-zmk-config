@@ -7,20 +7,20 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 LAYOUTS = ROOT / "docs/layouts"
 
-# Keyboard viewing order. Columns 0-5 are the left half, 7-8 are the center
-# keys, and 10-15 are the right half. The thumb row sits under the inner columns.
+# 42 switches in viewing order. Columns 0-5 are the left half and 7-12 are
+# the right half. Positions 6, 7, 20, and 21 are optional pads between the
+# halves on the Pro matrix. This board does not populate them.
 PLACEMENT = {}
 for index in range(6):
     PLACEMENT[index] = (index, 0)
-    PLACEMENT[8 + index] = (10 + index, 0)
+    PLACEMENT[8 + index] = (7 + index, 0)
     PLACEMENT[14 + index] = (index, 1)
-    PLACEMENT[22 + index] = (10 + index, 1)
+    PLACEMENT[22 + index] = (7 + index, 1)
     PLACEMENT[28 + index] = (index, 2)
-    PLACEMENT[34 + index] = (10 + index, 2)
+    PLACEMENT[34 + index] = (7 + index, 2)
 PLACEMENT.update({
-    6: (7, 0), 7: (8, 0), 20: (7, 1), 21: (8, 1),
     40: (3, 3), 41: (4, 3), 42: (5, 3),
-    43: (10, 3), 44: (11, 3), 45: (12, 3),
+    43: (7, 3), 44: (8, 3), 45: (9, 3),
 })
 
 KEY_LABELS = {
@@ -86,20 +86,22 @@ def binding_label(binding):
 
 
 def render(name, bindings):
-    assert len(bindings) == len(PLACEMENT) == 46
-    width, height = 1392, 332
+    assert len(bindings) == 46
+    width, height = 1140, 332
     lines = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
         f'<title id="title">{name} layer</title>',
-        '<desc id="desc">Full 46-key Corne layout in keyboard viewing order. '
-        'Both halves, the center keys, and the thumb row are shown, including disabled keys.</desc>',
+        '<desc id="desc">42-key Corne layout in keyboard viewing order. '
+        'The four optional pads between the halves are omitted.</desc>',
         f'<rect width="{width}" height="{height}" rx="16" fill="#0f172a"/>',
         '<g font-family="system-ui, sans-serif" text-anchor="middle">',
         '<text x="276" y="32" fill="#94a3b8" font-size="14">LEFT</text>',
-        '<text x="1116" y="32" fill="#94a3b8" font-size="14">RIGHT</text>',
+        '<text x="864" y="32" fill="#94a3b8" font-size="14">RIGHT</text>',
     ]
     for position, binding in enumerate(bindings):
+        if position not in PLACEMENT:
+            continue
         column, row = PLACEMENT[position]
         label = binding_label(binding)
         x, y = 24 + 84 * column, 52 + 68 * row
