@@ -8,9 +8,11 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
 
 - Base layer uses Graphite.
 - Only the inner 5 columns per half are used for alpha/layer keys. Extra keys are mapped as follows:
-  - Middle-row left outer carries `ESC` on `BASE`/`MOD` and `` CMD+` `` on `EXT`.
-  - Bottom-row left outer carries dedicated `SHIFT` on `BASE`.
-  - Top-row outer keys, the middle-row right outer key, and the bottom-row right outer key are unused.
+  - Top-row left outer is `ESC` on `BASE` and `MOD`, and `` CMD+` `` on `EXT`.
+  - Home-row left outer is sticky `SYM`.
+  - Home-row right outer is sticky `NUM`.
+  - Bottom-row left outer stays `SHIFT` on `BASE`.
+  - Top-row right outer and bottom-row right outer stay unused on `BASE`.
   - The two top center keys are encoder presses; the remaining center keys are unused.
 - The layer diagrams omit unused extra keys unless one is used on that layer.
 - `Mod/Ext` is the main layer key:
@@ -19,7 +21,7 @@ Inspired by [Seniply](https://stevep99.github.io/seniply/) and [Callum](https://
 - The thumb keys are organized by role:
   - tap `Sym` or `Num` for one sticky layer key; hold for a sequence
   - `Backspace`, `Enter`, and `Space` are dedicated, normally repeatable keys
-  - hold the dedicated `Shift` below `Escape` and tap `Backspace` for Delete
+  - hold the dedicated `Shift` below `Sym` and tap `Backspace` for Delete
   - hold `Shift` and tap `Enter` for Shift+Enter
   - tap or hold `Mod/Ext`, then tap `Enter` for an alternate resting-thumb Shift+Enter chord
 - `Backspace` and `Space` keep their base behavior on `MOD`, `EXT`, `SYM`, and `NUM`.
@@ -81,7 +83,8 @@ Outer keys
 
 | Row    | Left outer | Right outer |
 | ------ | ---------- | ----------- |
-| Home   | `ESC`      |             |
+| Top    | `ESC`      |             |
+| Home   | `SYM†`     | `NUM†`      |
 | Bottom | `SHIFT`    |             |
 
 ## MOD (tap `Mod/Ext`)
@@ -110,9 +113,9 @@ Thumbs
 
 Outer keys
 
-| Left outer | Right outer |
-| ---------- | ----------- |
-| `ESC`      |             |
+| Row    | Left outer | Right outer |
+| ------ | ---------- | ----------- |
+| Top    | `ESC`      |             |
 
 ## EXT (hold `Mod/Ext`)
 
@@ -147,9 +150,9 @@ Thumbs
 
 Outer keys
 
-| Left outer | Right outer |
-| ---------- | ----------- |
-| `` CMD+` `` |             |
+| Row    | Left outer | Right outer |
+| ------ | ---------- | ----------- |
+| Top    | `` CMD+` `` |             |
 
 ## SYM (tap `Sym` for sticky; hold for momentary)
 
@@ -182,6 +185,13 @@ Thumbs
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
 | `SYM`      |             | `BSP/DEL`  | `RET`       | `SPC`        | `NUM†`      |
 
+Outer keys
+
+| Row    | Left outer | Right outer |
+| ------ | ---------- | ----------- |
+| Home   |            | `{`         |
+| Bottom |            | `}`         |
+
 ## NUM (tap `Num` for sticky; hold for momentary)
 
 Left half
@@ -198,13 +208,19 @@ Right half
 | ------ | ----- | ----- | ------ | ----- | ------- |
 | Top    |       |       |        |       |         |
 | Home   | `HYP*` | `CMD*` | `CTRL*` | `ALT*` | `SHIFT*` |
-| Bottom | `_`   | `=`   | `,`    |       |         |
+| Bottom |       | `=`   | `,`    |       |         |
 
 Thumbs
 
 | Left outer | Left middle | Left inner | Right inner | Right middle | Right outer |
 | ---------- | ----------- | ---------- | ----------- | ------------ | ----------- |
 | `.`        | `0`         | `BSP/DEL`  | `RET`       | `SPC`        | `NUM`       |
+
+Outer keys
+
+| Row    | Left outer | Right outer |
+| ------ | ---------- | ----------- |
+| Home   | `_`        |             |
 
 ## MF (hold both outer layer thumbs: `Sym` + `Num`)
 
@@ -277,9 +293,11 @@ Right half
 - `RGB SAI` / `RGB SAD` = increase/decrease saturation
 - `RGB BRI` / `RGB BRD` = increase/decrease brightness
 - `RGB EFF` = cycle RGB effect
-- Middle-row left outer key = `ESC` on `BASE`/`MOD` and `` CMD+` `` on `EXT`
+- Top-row left outer key = `ESC` on `BASE` and `MOD`, and `` CMD+` `` on `EXT`
+- Home-row left outer key = sticky `SYM`
+- Home-row right outer key = sticky `NUM`
 - Bottom-row left outer key = dedicated `SHIFT` on `BASE`
-- Top-row outer keys, the middle-row right outer key, and the bottom-row right outer key are unused
+- Top-row right outer key and bottom-row right outer key stay unused on `BASE`
 
 ## Bluetooth Recovery
 

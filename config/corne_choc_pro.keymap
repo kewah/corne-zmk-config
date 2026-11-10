@@ -5,7 +5,10 @@
 // - Hold EXT for navigation/editing, tap EXT for sticky MOD
 // - EXT left hand: one-handed mouse companion (swapper, history, clipboard),
 //   mirrored on MOD so tap-then-key one-shots the same shortcuts
-// - Dedicated Escape on the far-left home row; Shift directly below it
+// - Top-left is Escape on BASE and MOD, and Cmd+grave on EXT
+// - Home-left is sticky SYM. Home-right is sticky NUM
+// - Bottom-left is Shift on BASE only. EXT leaves that key empty so the
+//   switchers still ignore only the home-row Shift
 // - Dedicated Backspace, Enter, and Space; sticky-tap/held SYM and NUM
 // - Backspace stays on the inner-left thumb on SYM and NUM (Shift + Backspace sends Delete)
 // - Delete stays on the EXT comma position
@@ -15,10 +18,12 @@
 // - BT controls on left, RGB controls on right of BT layer
 //
 // Extra Corne keys vs Totem:
-//   Middle-row left outer (pos 14) → Escape
-//   Bottom-row left outer (pos 28) → Shift
-//   Top-row outers (pos 0, 13), middle-row right outer (pos 27),
-//   and bottom-row right outer (pos 39) → &none
+//   Top-left (pos 0) → Escape on BASE and MOD, Cmd+grave on EXT
+//   Home-left (pos 14) → sticky SYM
+//   Home-right (pos 27) → sticky NUM
+//   Bottom-left (pos 28) → Shift on BASE only. EXT leaves it empty so the
+//     switchers still ignore only the home-row Shift
+//   Top-right (pos 13) and bottom-right (pos 39) → unused on BASE
 //   Center keys (pos 6, 7, 20, 21) → encoder press / &none
 
 #include <behaviors.dtsi>
@@ -215,9 +220,9 @@
             label = "BASE";
             bindings = <
         //  ┌─extra─┐                                                          ┌─enc──┐ ┌─enc──┐                                                          ┌─extra─┐
-            &none     &kp B        &kp L        &kp D        &kp W     &kp Z    &kp C_MUTE &kp C_PP &apo_dquote &kp F        &kp O        &kp U        &kp J     &none
+            &kp ESC   &kp B        &kp L        &kp D        &kp W     &kp Z    &kp C_MUTE &kp C_PP &apo_dquote &kp F        &kp O        &kp U        &kp J     &none
         //  ┌outer-L┐                                                          ┌─ctr──┐ ┌─ctr──┐                                                          ┌outer-R┐
-            &kp ESC    &kp N       &kp R        &kp T        &kp S     &kp G    &none  &none    &kp Y       &kp H        &kp A        &kp E        &kp I     &none
+            &sticky_layer SYM  &kp N       &kp R        &kp T        &kp S     &kp G    &none  &none    &kp Y       &kp H        &kp A        &kp E        &kp I     &sticky_layer NUM
         //  ┌─extra─┐                                                                                                                                      ┌─extra─┐
             &kp LSHFT  &kp Q        &kp X        &kp M        &kp C     &kp V                    &kp K       &kp P        &comma_qmark &dot_excl    &slash_bslash &none
                                           &sticky_layer SYM      &ext_mod EXT MOD  &backspace_delete                    &kp RET  &kp SPACE  &sticky_layer NUM
@@ -228,8 +233,8 @@
         mod_layer {
             label = "MOD";
             bindings = <
-            &none        &kp LG(LBKT)  &kp LC(TAB)  &quick_swap  &kp LG(W)    &kp LG(Z)        &trans &trans &trans       &trans       &trans       &trans       &trans       &none
-            &kp ESC       &hm LSHFT LSHFT &hm LALT LALT &hm LCTRL LCTRL &hm LGUI LGUI &kp LG(R) &trans &trans &trans &hm HYPER_MOD HYPER_MOD &trans &trans &tmx &trans
+            &kp ESC      &kp LG(LBKT)  &kp LC(TAB)  &quick_swap  &kp LG(W)    &kp LG(Z)        &trans &trans &trans       &trans       &trans       &trans       &trans       &none
+            &trans        &hm LSHFT LSHFT &hm LALT LALT &hm LCTRL LCTRL &hm LGUI LGUI &kp LG(R) &trans &trans &trans &hm HYPER_MOD HYPER_MOD &trans &trans &tmx &none
             &none        &kp LG(RBKT)  &kp LG(X)    &kp LG(A)    &kp LG(C)    &kp LG(V)                     &trans       &trans       &trans       &trans       &trans       &none
                                              &trans       &trans       &trans                     &kp LS(RET)  &trans       &trans
             >;
@@ -238,8 +243,8 @@
         ext_layer {
             label = "EXT";
             bindings = <
-            &none        &kp LG(LBKT)  &tab_swapper &swapper     &kp LG(W)    &kp LG(Z)        &trans &trans &kp RALT     &kp HOME     &kp END      &none        &kp PG_UP    &none
-            &kp LG(GRAVE) &sk LSHFT     &sk LALT     &sk LCTRL    &sk LGUI     &kp LG(R)        &trans &trans &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &tmx         &none
+            &kp LG(GRAVE) &kp LG(LBKT)  &tab_swapper &swapper     &kp LG(W)    &kp LG(Z)        &trans &trans &kp RALT     &kp HOME     &kp END      &none        &kp PG_UP    &none
+            &trans        &sk LSHFT     &sk LALT     &sk LCTRL    &sk LGUI     &kp LG(R)        &trans &trans &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &tmx         &none
             &none        &kp LG(RBKT)  &kp LG(X)    &kp LG(A)    &kp LG(C)    &kp LG(V)                     &none        &kp TAB      &kp DEL      &none        &kp PG_DN    &none
                                              &trans       &trans       &trans                      &kp LS(RET)  &trans       &trans
             >;
@@ -249,8 +254,8 @@
             label = "SYM";
             bindings = <
             &none  &none        &kp CARET    &kp AMPS     &kp PIPE     &none         &trans &trans &kp TILDE    &kp AT       &kp GRAVE    &kp HASH     &kp DLLR     &none
-            &none  &sk LSHFT    &sk LALT     &sk LCTRL    &sk LGUI     &sk HYPER_MOD &trans &trans &kp MINUS    &kp LPAR     &kp LT       &kp LBKT     &kp COLON    &none
-            &none  &none        &none        &none        &none        &none                      &kp UNDER    &kp RPAR     &kp GT       &kp RBKT     &kp SEMI     &none
+            &trans &sk LSHFT    &sk LALT     &sk LCTRL    &sk LGUI     &sk HYPER_MOD &trans &trans &kp MINUS    &kp LPAR     &kp LT       &kp LBKT     &kp COLON    &kp LBRC
+            &none  &none        &none        &none        &none        &none                      &kp UNDER    &kp RPAR     &kp GT       &kp RBKT     &kp SEMI     &kp RBRC
                                              &trans       &trans       &backspace_delete           &trans       &trans       &trans
             >;
         };
@@ -259,8 +264,8 @@
             label = "NUM";
             bindings = <
             &none  &kp FSLH     &kp N7       &kp N8       &kp N9       &kp PRCNT     &trans &trans &none        &none        &none        &none        &none        &none
-            &none  &kp MINUS    &kp N1       &kp N2       &kp N3       &kp PLUS      &trans &trans &sk HYPER_MOD &sk LGUI    &sk LCTRL    &sk LALT     &sk LSHFT    &none
-            &none  &kp COLON    &kp N4       &kp N5       &kp N6       &kp ASTRK                  &kp UNDER    &kp EQUAL    &kp COMMA    &none        &none        &none
+            &kp UNDER &kp MINUS    &kp N1       &kp N2       &kp N3       &kp PLUS      &trans &trans &sk HYPER_MOD &sk LGUI    &sk LCTRL    &sk LALT     &sk LSHFT    &trans
+            &none  &kp COLON    &kp N4       &kp N5       &kp N6       &kp ASTRK                  &none        &kp EQUAL    &kp COMMA    &none        &none        &none
                                              &kp DOT      &kp N0       &backspace_delete            &trans       &trans       &trans
             >;
         };
