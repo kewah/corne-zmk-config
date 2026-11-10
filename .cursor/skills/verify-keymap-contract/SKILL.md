@@ -86,9 +86,9 @@ After a change to covered code, rerun the command. Move the sync commit below on
 
 ## Sync
 
-- Sync commit: `e41e04468d8a7473e5de42a4506dc8c62c0fec67`
-- `config/corne_choc_pro.keymap` `130f613b463126a96edbf4f13e51cd5de509db8f27eee9dc0cf1168ca956624c`
+- Sync commit: `0ef602df81e874171701a782c544d9daed97776c`
+- `config/corne_choc_pro.keymap` `760efa16e75cffb3f699f82900feb7ded11b3f582ab83e5b1e01bc23349ddbf5`
 - `boards/arm/corne_choc_pro/corne_choc_pro-layouts.dtsi` `a66831b4136504a4577e298e0e0a83ae36be2e6cf4e558f80a9d05ff47746d04`
-- `README.md` `a4dc5db30e005bd03756578953a17dc05512594535317f6f707fbaa39ec39801`
+- `README.md` `44b8ff0ee2f37035baf8515c745faa680073442434b7dd7e79ec98de202a2e1c`
 
-Those hashes are the file contents the check was run on. They match that commit. The keymap and layout hashes are unchanged from `665053b`. That commit's README was rewritten into diagrams, and the prose still states this contract. If a hash differs, the check is stale.
+Those hashes are the file contents the check was run on. They match that commit. The layout hash is still the one from `665053b`. If a hash differs, the check is stale.
