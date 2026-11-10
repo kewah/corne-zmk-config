@@ -23,7 +23,7 @@ Graphite.
 
 ## MOD
 
-Tap Mod/Ext. QSWAP sends Cmd+Tab and releases Cmd immediately.
+Tap Mod/Ext. QSWAP sends Cmd+Tab and releases Cmd immediately. The rightmost key on the middle row sends Alt+Delete.
 
 ![MOD layout](docs/layouts/mod.svg)
 

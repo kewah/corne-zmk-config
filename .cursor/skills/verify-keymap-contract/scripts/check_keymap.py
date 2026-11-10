@@ -142,6 +142,7 @@ OWN: tuple[tuple[str, int, str, str], ...] = (
     ("BASE", 13, "&none", "top-right outer is unused on BASE"),
     ("BASE", 14, "&sticky_layer SYM", "home-left outer is sticky SYM"),
     ("BASE", 27, "&sticky_layer NUM", "home-right outer is sticky NUM"),
+    ("MOD", 27, "&kp LA(DEL)", "MOD home-right outer sends Alt+Delete"),
     ("BASE", 28, "&kp LSHFT", "bottom-left outer is Shift on BASE"),
     ("BASE", 39, "&none", "bottom-right outer is unused on BASE"),
     ("EXT", 15, "&sk LSHFT", "EXT home-row Shift is the reverse-cycle key"),

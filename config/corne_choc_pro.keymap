@@ -12,6 +12,7 @@
 // - Dedicated Backspace, Enter, and Space; sticky-tap/held SYM and NUM
 // - Backspace stays on the inner-left thumb on SYM and NUM (Shift + Backspace sends Delete)
 // - Delete stays on the EXT comma position
+// - MOD's rightmost middle-row key sends Alt+Delete
 // - Symbols prioritized for markup and writing
 // - SYM + NUM opens the shared media/function layer
 // - MOD/EXT + NUM opens the BT layer
@@ -234,7 +235,7 @@
             label = "MOD";
             bindings = <
             &kp ESC      &kp LG(LBKT)  &kp LC(TAB)  &quick_swap  &kp LG(W)    &kp LG(Z)        &trans &trans &trans       &trans       &trans       &trans       &trans       &none
-            &trans        &hm LSHFT LSHFT &hm LALT LALT &hm LCTRL LCTRL &hm LGUI LGUI &kp LG(R) &trans &trans &trans &hm HYPER_MOD HYPER_MOD &trans &trans &tmx &none
+            &trans        &hm LSHFT LSHFT &hm LALT LALT &hm LCTRL LCTRL &hm LGUI LGUI &kp LG(R) &trans &trans &trans &hm HYPER_MOD HYPER_MOD &trans &trans &tmx &kp LA(DEL)
             &none        &kp LG(RBKT)  &kp LG(X)    &kp LG(A)    &kp LG(C)    &kp LG(V)                     &trans       &trans       &trans       &trans       &trans       &none
                                              &trans       &trans       &trans                     &kp LS(RET)  &trans       &trans
             >;
