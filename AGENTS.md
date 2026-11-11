@@ -38,4 +38,4 @@ Keymaps use ZMK devicetree syntax:
 
 ## Required Actions
 
-**When modifying keymap layouts:** Always update `README.md` to reflect layout changes. Keep layout documentation in sync with `.keymap` files.
+**When modifying keymap layouts:** Run `python3 .cursor/skills/verify-keymap-contract/scripts/check_keymap.py` before you finish. It fails when a layer picture does not match the keymap.
