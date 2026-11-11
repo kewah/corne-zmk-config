@@ -86,9 +86,9 @@ After a change to covered code, rerun the command. Move the sync commit below on
 
 ## Sync
 
-- Sync commit: `e14414985fc22fc6bc732d762f34fd6db6618906`
+- Sync commit: `db478ba5db9423e96b22b58c5aa5ca8c3cff98e1`
 - `config/corne_choc_pro.keymap` `a5cf564dd9f0c65e9bb3a57c54394fdd7b11c5ace870566f92229f34b8199716`
 - `boards/arm/corne_choc_pro/corne_choc_pro-layouts.dtsi` `a66831b4136504a4577e298e0e0a83ae36be2e6cf4e558f80a9d05ff47746d04`
-- `README.md` `08b322876275fe788d31ccb82cf52820836af9d2263a4591486bfad9ff684390`
+- `README.md` `6481005501534b7cd307f7e8cb8b62da453a28fa6b6035c6c112e51239559f44`
 
 Those hashes are the file contents the check was run on. They match that commit. The layout hash is still the one from `665053b`. If a hash differs, the check is stale.
