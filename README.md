@@ -17,7 +17,7 @@ Regenerate the pictures with `python3 docs/generate_layouts.py` after a keymap e
 
 ## BASE
 
-Graphite. The top-right key sends Alt+Delete.
+Graphite.
 
 ![BASE layout](docs/layouts/base.svg)
 
