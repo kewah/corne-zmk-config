@@ -147,7 +147,12 @@ def main():
     if args.check:
         stale.extend(str(path.relative_to(ROOT)) for path in sorted(obsolete))
         if stale:
-            parser.exit(1, "Stale diagrams: " + ", ".join(stale) + "\n")
+            parser.exit(
+                1,
+                "Stale diagrams: "
+                + ", ".join(stale)
+                + ". Run python3 docs/generate_layouts.py\n",
+            )
     else:
         for path in obsolete:
             path.unlink()

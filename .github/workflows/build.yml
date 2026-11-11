@@ -2,5 +2,13 @@ name: Build ZMK firmware
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
+  diagrams:
+    name: Check layer diagrams
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check layer diagrams
+        run: python3 docs/generate_layouts.py --check
+
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main

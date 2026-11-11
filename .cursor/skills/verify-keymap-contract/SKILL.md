@@ -3,10 +3,11 @@ name: verify-keymap-contract
 description: >
   Checks the Corne Choc Pro keymap contract: combo positions, the Cmd-Tab
   reverse-shift, Backspace and Space fallthrough, and that Bluetooth and
-  output commands resolve only while the BT layer supplies them. Use when
-  editing config/corne_choc_pro.keymap, corne_choc_pro-layouts.dtsi, layer
-  order, combos, tri-state swappers, sticky layers, or the README layout,
-  and before trusting a keymap change.
+  output commands resolve only while the BT layer supplies them, and that
+  the README layer pictures match the keymap. Use when editing
+  config/corne_choc_pro.keymap, corne_choc_pro-layouts.dtsi, layer order,
+  combos, tri-state swappers, sticky layers, the layer pictures, or the
+  README layout, and before trusting a keymap change.
 ---
 
 # Verify the Corne keymap contract
@@ -27,17 +28,21 @@ python3 .cursor/skills/verify-keymap-contract/scripts/check_keymap.py
 
 `--dump` prints the contract bindings the checker read. The script uses the Python 3 standard library. There is nothing to install.
 
-Exit 0: the contract holds for the files on disk.
-Exit 1: a finding. Each line is a counterexample in keymap words.
-Exit 2: the checker could not parse the files. That is a fault in the checker, not a finding. Fix the checker. Do not edit the keymap to silence it.
+Exit 0: the contract holds and the layer pictures match the keymap.
+Exit 1: a finding. A keymap line is a counterexample. A picture line names the stale file and the command that rewrites it.
+Exit 2: the checker could not parse the files or could not run the picture check. That is a fault in the checker, not a finding. Fix the checker. Do not edit the keymap to silence it.
 
-A pass covers this contract only. It does not mean the rest of the keymap is right.
+A pass covers this contract and the layer pictures. It does not mean the rest of the keymap is right.
 
 ## Read a failure
 
 Replay the line against `config/corne_choc_pro.keymap`. If every step is a binding, combo, or layer that exists, it is a bug in the keymap. Report it. Do not change the contract or the keymap to make the check pass unless the user asked.
 
 If a step cannot happen in the keymap, the checker is wrong. Fix the checker and say what was wrong.
+
+A line that names a file under `docs/layouts` is a stale picture. Run `python3 docs/generate_layouts.py`. Do not edit the SVG by hand, and do not change the keymap to silence it.
+
+README prose keeps behavior the picture does not draw, such as what QSWAP sends. Do not add a sentence that only names a key's position and its label. The picture already shows that.
 
 Two failures that must keep failing, checked against the real file and then reverted:
 
@@ -50,6 +55,7 @@ Checked code:
 
 - `config/corne_choc_pro.keymap` — layer nodes in order, `bindings` on each layer, the six combos, `ext_mod`, `sticky_layer`, `backspace_delete`, `swapper`, `tab_swapper`, and `chosen { zmk,physical-layout }`.
 - `boards/arm/corne_choc_pro/corne_choc_pro-layouts.dtsi` — `default_layout` key count and `default_map` positions.
+- `docs/layouts/*.svg` — the pictures `docs/generate_layouts.py --check` renders from the keymap. A difference is a finding.
 
 The contract tables `OWN`, `FALLTHROUGH`, `COMBOS`, and `SWAPPERS` live in `scripts/check_keymap.py`. They were transcribed from the keymap header and from README.md sections Layout Notes, Layer Access, the thumb and outer-key diagrams, Combos, and Bluetooth. The checker does not parse the README. If those sections change, re-read them before trusting a pass.
 

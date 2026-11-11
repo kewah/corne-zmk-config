@@ -7,12 +7,14 @@ Bluetooth or output command is resolved only while the BT layer supplies it.
 
 The checker reads the keymap the firmware build uses. It does not model
 hold-tap timing, sticky-key release, or combo timeouts. Exit 0 means the
-contract holds. Exit 1 is a finding in the keymap. Exit 2 means this checker
-could not parse the files, which is a problem in the checker, not a finding.
+contract holds and the layer pictures match the keymap. Exit 1 is a finding.
+Exit 2 means this checker could not parse the files or could not run the
+picture check, which is a problem in the checker, not a finding.
 """
 
 from __future__ import annotations
 
+import subprocess
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -1016,12 +1018,31 @@ def check(dump: bool) -> list[str]:
     return failures
 
 
+def diagram_findings() -> list[str]:
+    script = ROOT / "docs" / "generate_layouts.py"
+    completed = subprocess.run(
+        [sys.executable, str(script), "--check"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if completed.returncode == 0:
+        return []
+    message = (completed.stderr or completed.stdout).strip()
+    if completed.returncode == 1:
+        return [message or "The layer pictures do not match the keymap."]
+    raise CheckError(
+        message or f"generate_layouts.py --check exited {completed.returncode}"
+    )
+
+
 def main() -> int:
     dump = "--dump" in sys.argv
     try:
         failures = check(dump)
+        failures.extend(diagram_findings())
     except CheckError as exc:
-        print(f"ERROR\nThis is a problem in the checker, not a keymap finding: {exc}")
+        print(f"ERROR\nThis is a problem in the checker, not a finding: {exc}")
         return 2
     if failures:
         print("FAIL")
@@ -1031,7 +1052,8 @@ def main() -> int:
     print("PASS")
     print(
         "Every chord, the Cmd-Tab reverse-shift, Backspace, Space, and the "
-        "Bluetooth keys match the layout contract."
+        "Bluetooth keys match the layout contract. The layer pictures match "
+        "the keymap."
     )
     print(
         f"Checked {len(POS_NAME)} positions x {1 << (len(LAYER_ORDER) - 1)} "
