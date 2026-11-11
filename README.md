@@ -17,13 +17,13 @@ Regenerate the pictures with `python3 docs/generate_layouts.py` after a keymap e
 
 ## BASE
 
-Graphite.
+Graphite. The top-right key sends Alt+Delete.
 
 ![BASE layout](docs/layouts/base.svg)
 
 ## MOD
 
-Tap Mod/Ext. QSWAP sends Cmd+Tab and releases Cmd immediately. The rightmost key on the middle row sends Alt+Delete.
+Tap Mod/Ext. QSWAP sends Cmd+Tab and releases Cmd immediately.
 
 ![MOD layout](docs/layouts/mod.svg)
 

@@ -12,7 +12,7 @@
 // - Dedicated Backspace, Enter, and Space; sticky-tap/held SYM and NUM
 // - Backspace stays on the inner-left thumb on SYM and NUM (Shift + Backspace sends Delete)
 // - Delete stays on the EXT comma position
-// - MOD's rightmost middle-row key sends Alt+Delete
+// - The top-right key on BASE sends Alt+Delete
 // - Symbols prioritized for markup and writing
 // - SYM + NUM opens the shared media/function layer
 // - MOD/EXT + NUM opens the BT layer
@@ -24,7 +24,8 @@
 //   Home-right (pos 27) → sticky NUM
 //   Bottom-left (pos 28) → Shift on BASE only. EXT leaves it empty so the
 //     switchers still ignore only the home-row Shift
-//   Top-right (pos 13) and bottom-right (pos 39) → unused on BASE
+//   Top-right (pos 13) → Alt+Delete on BASE
+//   Bottom-right (pos 39) → unused on BASE
 //   Center keys (pos 6, 7, 20, 21) → encoder press / &none
 
 #include <behaviors.dtsi>
@@ -221,7 +222,7 @@
             label = "BASE";
             bindings = <
         //  ┌─extra─┐                                                          ┌─enc──┐ ┌─enc──┐                                                          ┌─extra─┐
-            &kp ESC   &kp B        &kp L        &kp D        &kp W     &kp Z    &kp C_MUTE &kp C_PP &apo_dquote &kp F        &kp O        &kp U        &kp J     &none
+            &kp ESC   &kp B        &kp L        &kp D        &kp W     &kp Z    &kp C_MUTE &kp C_PP &apo_dquote &kp F        &kp O        &kp U        &kp J     &kp LA(DEL)
         //  ┌outer-L┐                                                          ┌─ctr──┐ ┌─ctr──┐                                                          ┌outer-R┐
             &sticky_layer SYM  &kp N       &kp R        &kp T        &kp S     &kp G    &none  &none    &kp Y       &kp H        &kp A        &kp E        &kp I     &sticky_layer NUM
         //  ┌─extra─┐                                                                                                                                      ┌─extra─┐
@@ -235,7 +236,7 @@
             label = "MOD";
             bindings = <
             &kp ESC      &kp LG(LBKT)  &kp LC(TAB)  &quick_swap  &kp LG(W)    &kp LG(Z)        &trans &trans &trans       &trans       &trans       &trans       &trans       &none
-            &trans        &hm LSHFT LSHFT &hm LALT LALT &hm LCTRL LCTRL &hm LGUI LGUI &kp LG(R) &trans &trans &trans &hm HYPER_MOD HYPER_MOD &trans &trans &tmx &kp LA(DEL)
+            &trans        &hm LSHFT LSHFT &hm LALT LALT &hm LCTRL LCTRL &hm LGUI LGUI &kp LG(R) &trans &trans &trans &hm HYPER_MOD HYPER_MOD &trans &trans &tmx &none
             &none        &kp LG(RBKT)  &kp LG(X)    &kp LG(A)    &kp LG(C)    &kp LG(V)                     &trans       &trans       &trans       &trans       &trans       &none
                                              &trans       &trans       &trans                     &kp LS(RET)  &trans       &trans
             >;

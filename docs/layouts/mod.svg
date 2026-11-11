@@ -120,10 +120,10 @@
 <rect x="948" y="120" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
 <text x="986" y="151" fill="#f1f5f9" font-size="18">TMX</text>
 </g>
-<g data-position="27" data-binding="&amp;kp LA(DEL)">
-<title>Position 27: &amp;kp LA(DEL)</title>
-<rect x="1032" y="120" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
-<text x="1070" y="151" fill="#f1f5f9" font-size="14">Alt+Del</text>
+<g data-position="27" data-binding="&amp;none">
+<title>Position 27: &amp;none</title>
+<rect x="1032" y="120" width="76" height="50" rx="8" fill="#131e31" stroke="#28364b"/>
+<text x="1070" y="151" fill="#64748b" font-size="18">—</text>
 </g>
 <g data-position="28" data-binding="&amp;none">
 <title>Position 28: &amp;none</title>
