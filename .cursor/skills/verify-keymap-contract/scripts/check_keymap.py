@@ -1026,8 +1026,8 @@ def diagram_findings() -> list[str]:
     if completed.returncode == 0:
         return []
     message = (completed.stderr or completed.stdout).strip()
-    if completed.returncode == 1:
-        return [message or "The layer pictures do not match the keymap."]
+    if completed.returncode == 1 and message.startswith("Stale diagrams:"):
+        return [message]
     raise CheckError(
         message or f"generate_layouts.py --check exited {completed.returncode}"
     )
