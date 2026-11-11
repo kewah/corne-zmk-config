@@ -6,10 +6,7 @@ Bluetooth maintenance keys resolve to the bindings the layout names, and a
 Bluetooth or output command is resolved only while the BT layer supplies it.
 
 The checker reads the keymap the firmware build uses. It does not model
-hold-tap timing, sticky-key release, or combo timeouts. Exit 0 means the
-contract holds and the layer pictures match the keymap. Exit 1 is a finding.
-Exit 2 means this checker could not parse the files or could not run the
-picture check, which is a problem in the checker, not a finding.
+hold-tap timing, sticky-key release, or combo timeouts.
 """
 
 from __future__ import annotations
