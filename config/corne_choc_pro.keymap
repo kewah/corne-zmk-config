@@ -12,7 +12,7 @@
 // - Dedicated Backspace, Enter, and Space; sticky-tap/held SYM and NUM
 // - Backspace stays on the inner-left thumb on SYM and NUM (Shift + Backspace sends Delete)
 // - Delete stays on the EXT comma position
-// - The top-right key on BASE sends Alt+Delete
+// - The top-right key on BASE sends Alt+Backspace
 // - Symbols prioritized for markup and writing
 // - SYM + NUM opens the shared media/function layer
 // - MOD/EXT + NUM opens the BT layer
@@ -24,7 +24,7 @@
 //   Home-right (pos 27) → sticky NUM
 //   Bottom-left (pos 28) → Shift on BASE only. EXT leaves it empty so the
 //     switchers still ignore only the home-row Shift
-//   Top-right (pos 13) → Alt+Delete on BASE
+//   Top-right (pos 13) → Alt+Backspace on BASE
 //   Bottom-right (pos 39) → unused on BASE
 //   Center keys (pos 6, 7, 20, 21) → encoder press / &none
 
@@ -222,7 +222,7 @@
             label = "BASE";
             bindings = <
         //  ┌─extra─┐                                                          ┌─enc──┐ ┌─enc──┐                                                          ┌─extra─┐
-            &kp ESC   &kp B        &kp L        &kp D        &kp W     &kp Z    &kp C_MUTE &kp C_PP &apo_dquote &kp F        &kp O        &kp U        &kp J     &kp LA(DEL)
+            &kp ESC   &kp B        &kp L        &kp D        &kp W     &kp Z    &kp C_MUTE &kp C_PP &apo_dquote &kp F        &kp O        &kp U        &kp J     &kp LA(BSPC)
         //  ┌outer-L┐                                                          ┌─ctr──┐ ┌─ctr──┐                                                          ┌outer-R┐
             &sticky_layer SYM  &kp N       &kp R        &kp T        &kp S     &kp G    &none  &none    &kp Y       &kp H        &kp A        &kp E        &kp I     &sticky_layer NUM
         //  ┌─extra─┐                                                                                                                                      ┌─extra─┐

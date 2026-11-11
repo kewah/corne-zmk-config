@@ -60,10 +60,10 @@
 <rect x="948" y="52" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
 <text x="986" y="83" fill="#f1f5f9" font-size="18">J</text>
 </g>
-<g data-position="13" data-binding="&amp;kp LA(DEL)">
-<title>Position 13: &amp;kp LA(DEL)</title>
+<g data-position="13" data-binding="&amp;kp LA(BSPC)">
+<title>Position 13: &amp;kp LA(BSPC)</title>
 <rect x="1032" y="52" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
-<text x="1070" y="83" fill="#f1f5f9" font-size="14">Alt+Del</text>
+<text x="1070" y="83" fill="#f1f5f9" font-size="14">Alt+Bksp</text>
 </g>
 <g data-position="14" data-binding="&amp;sticky_layer SYM">
 <title>Position 14: &amp;sticky_layer SYM</title>

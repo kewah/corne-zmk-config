@@ -138,7 +138,7 @@ OWN: tuple[tuple[str, int, str, str], ...] = (
     ("BASE", 0, "&kp ESC", "top-left is Escape on BASE"),
     ("MOD", 0, "&kp ESC", "top-left is Escape on MOD"),
     ("EXT", 0, "&kp LG(GRAVE)", "top-left is Cmd+grave on EXT"),
-    ("BASE", 13, "&kp LA(DEL)", "top-right outer on BASE sends Alt+Delete"),
+    ("BASE", 13, "&kp LA(BSPC)", "top-right outer on BASE sends Alt+Backspace"),
     ("BASE", 14, "&sticky_layer SYM", "home-left outer is sticky SYM"),
     ("BASE", 27, "&sticky_layer NUM", "home-right outer is sticky NUM"),
     ("BASE", 28, "&kp LSHFT", "bottom-left outer is Shift on BASE"),
