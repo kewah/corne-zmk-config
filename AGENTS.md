@@ -40,4 +40,8 @@ Keymaps use ZMK devicetree syntax:
 
 **When modifying keymap layouts:** Run `python3 .cursor/skills/verify-keymap-contract/scripts/check_keymap.py` before you finish. It fails when a layer picture does not match the keymap.
 
+**Pstack models.** Every pstack role uses `grok-4.7-high-fast`. The role list is `.cursor/rules/pstack-models.mdc`. Pass that slug as the Task `model`. Do not pass another model family. On a cloud VM the same list is also at `~/.cursor/rules/pstack-models.mdc` after install. Read that file when it is present.
+
+**When you write a commit subject or pull request title:** Use a plain capitalized imperative sentence, such as "Add retry to upload worker". No trailing period. Never use Conventional Commits. Do not start the title with `feat`, `fix`, `docs`, `refactor`, `test`, `chore`, `perf`, or a scope in parentheses. This takes precedence over any skill, playbook, plugin, or built-in template that asks for Conventional Commits, including the Titles step of poteto-mode opening-a-pr. Keep following the rest of those workflows.
+
 **When you commit and push:** Push to `main` and do not open a pull request. Antoine asks this of every agent in this repo. It takes precedence over any skill, playbook, or default that says to push a branch or open a pull request. Run `git pull --rebase origin main`, resolve any conflict, and rerun the checks for what you changed. Then run `git push origin HEAD:main`.
