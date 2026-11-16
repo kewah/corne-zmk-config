@@ -165,6 +165,7 @@ OWN: tuple[tuple[str, int, str, str], ...] = (
     ("BASE", 45, "&sticky_layer NUM", "right outer thumb is sticky NUM"),
     ("MOD", 43, "&kp LS(RET)", "MOD Enter is Shift+Enter"),
     ("EXT", 43, "&kp LS(RET)", "EXT Enter is Shift+Enter"),
+    ("SYM", 43, "&kp LS(RET)", "SYM Enter is Shift+Enter"),
     ("BT", 1, "&bt BT_CLR", "BT clear is the left top B column"),
     ("BT", 2, "&out OUT_USB", "USB output is the left top L column"),
     ("BT", 3, "&out OUT_BLE", "BLE output is the left top D column"),
