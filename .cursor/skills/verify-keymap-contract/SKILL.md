@@ -93,8 +93,8 @@ After a change to covered code, rerun the command. Move the sync commit below on
 
 ## Sync
 
-- Sync commit: `c982af627c1db2e7b5dc2d795cf8a1108b572a5b`
-- `config/corne_choc_pro.keymap` `00e9bb2e882b73b5bb73f8961584eff45b3a24b337bfc9b79921f60d5c3d7468`
+- Sync commit: `559bd6740ec2e8d2994f13f66fa781aa102ed124`
+- `config/corne_choc_pro.keymap` `50ab5e2f790f053a4bea7eecb5e00c62e351a4a9e75a0b6ae735f1d22c8b2f1e`
 - `boards/arm/corne_choc_pro/corne_choc_pro-layouts.dtsi` `a66831b4136504a4577e298e0e0a83ae36be2e6cf4e558f80a9d05ff47746d04`
 - `README.md` `b5054cf06fffdde92cbe0527e4c5966486bbc127ba96068045ba1a536e8397c7`
 
