@@ -1015,6 +1015,22 @@ def check(dump: bool) -> list[str]:
     return failures
 
 
+def cancel_findings() -> list[str]:
+    script = ROOT / ".cursor/skills/verify-keymap-contract/scripts/test_swapper_cancel.py"
+    completed = subprocess.run(
+        [sys.executable, str(script)],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    if completed.returncode == 0:
+        return []
+    message = (completed.stdout or completed.stderr).strip()
+    if completed.returncode == 1 and message.startswith("FAIL"):
+        return [message]
+    raise CheckError(message or f"test_swapper_cancel.py exited {completed.returncode}")
+
+
 def diagram_findings() -> list[str]:
     script = ROOT / "docs" / "generate_layouts.py"
     completed = subprocess.run(
@@ -1037,6 +1053,7 @@ def main() -> int:
     dump = "--dump" in sys.argv
     try:
         failures = check(dump)
+        failures.extend(cancel_findings())
         failures.extend(diagram_findings())
     except CheckError as exc:
         print(f"ERROR\nThis is a problem in the checker, not a finding: {exc}")

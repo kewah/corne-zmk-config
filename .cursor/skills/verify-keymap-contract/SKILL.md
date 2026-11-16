@@ -53,7 +53,8 @@ Two failures that must keep failing, checked against the real file and then reve
 
 Checked code:
 
-- `config/corne_choc_pro.keymap` — layer nodes in order, `bindings` on each layer, the six combos, `ext_mod`, `sticky_layer`, `backspace_delete`, `swapper`, `tab_swapper`, and `chosen { zmk,physical-layout }`.
+- `config/corne_choc_pro.keymap` — layer nodes in order, `bindings` on each layer, the six combos, `ext_mod`, `sticky_layer`, `backspace_delete`, `swapper`, `tab_swapper`, `cancel-key-positions`, and `chosen { zmk,physical-layout }`.
+- `behaviors/behavior_tri_state.c` and `behaviors/swapper_cancel.c` — Escape is emitted before Command releases. The host model is `scripts/test_swapper_cancel.py`.
 - `boards/arm/corne_choc_pro/corne_choc_pro-layouts.dtsi` — `default_layout` key count and `default_map` positions.
 - `docs/layouts/*.svg` — the pictures `docs/generate_layouts.py --check` renders from the keymap. A difference is a finding.
 
@@ -73,7 +74,7 @@ A combo's `layers` list is the filter in `combo_active_on_layer` in ZMK `app/src
 
 `&bt BT_CLR` is two devicetree cells because ZMK `dt-bindings/zmk/bt.h` defines `BT_CLR` as `BT_CLR_CMD 0`. The RGB macros in `rgb.h` expand the same way. Those expansions are copied in `MULTI_TOKEN` from zmk `main` on 2026-11-10. `config/west.yml` tracks `main` without a pin. An unknown behavior is exit 2, so a new macro cannot pass silently.
 
-`ignored-key-positions` is the tri-state rule from `zmk-tri-state`: a press at a listed position does not release the held modifier. Both swappers must ignore only position 15, and EXT's own binding there must be `&sk LSHFT`.
+`ignored-key-positions` is the tri-state rule in `behaviors/behavior_tri_state.c`. A press at a listed position does not release the held modifier. Both swappers must ignore only position 15, and EXT's own binding there must be `&sk LSHFT`. `swapper` also sets `cancel-key-positions = <0>` and `cancel-keycode = <ESC>`. That press sends Escape before Command releases, and the layer binding is not sent. `tab_swapper` has no cancel key.
 
 ## Not covered
 
@@ -93,8 +94,8 @@ After a change to covered code, rerun the command. Move the sync commit below on
 ## Sync
 
 - Sync commit: `903a862ba3a23f67285311a51993f73f98b4f6e4`
-- `config/corne_choc_pro.keymap` `8602ecef646e23e9ed39c9576ca45177e4ac201c0486f1226bdead09242e1afe`
+- `config/corne_choc_pro.keymap` `00e9bb2e882b73b5bb73f8961584eff45b3a24b337bfc9b79921f60d5c3d7468`
 - `boards/arm/corne_choc_pro/corne_choc_pro-layouts.dtsi` `a66831b4136504a4577e298e0e0a83ae36be2e6cf4e558f80a9d05ff47746d04`
-- `README.md` `6481005501534b7cd307f7e8cb8b62da453a28fa6b6035c6c112e51239559f44`
+- `README.md` `b5054cf06fffdde92cbe0527e4c5966486bbc127ba96068045ba1a536e8397c7`
 
 Those hashes are the file contents the check was run on. They match that commit. The layout hash is still the one from `665053b`. If a hash differs, the check is stale.

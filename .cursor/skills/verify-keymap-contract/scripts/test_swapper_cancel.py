@@ -1,11 +1,4 @@
 #!/usr/bin/env python3
-"""HID order when the top-left key cancels the app switcher.
-
-macOS commits Cmd-Tab when Command goes up. Escape cancels the switcher
-only while Command is still down. The tri-state listener runs before the
-keymap and, on any other key, releases Command before that key is sent.
-"""
-
 from __future__ import annotations
 
 import re
@@ -41,11 +34,6 @@ def ext_top_left(text: str) -> str:
     if match is None:
         raise SystemExit("ERROR\nThe EXT layer has no first binding.")
     return match.group(1).strip()
-
-
-def upstream_cancel_trace() -> str:
-    """Current interrupt path. Command releases before the EXT binding."""
-    return "Command up, Cmd+grave"
 
 
 def compile_cancel_trace() -> str | None:
@@ -115,14 +103,25 @@ def findings() -> list[str]:
                 "The reverse-shift key has to stay position 15."
             )
 
+    listener = ROOT / "behaviors" / "behavior_tri_state.c"
+    if listener.is_file():
+        source = listener.read_text()
+    else:
+        source = ""
+    down = source.find("SWAPPER_HID_CANCEL_DOWN")
+    release = source.find("end_tri_state(canceling")
+    if "swapper_play_cancel" not in source or down < 0 or release < 0 or down > release:
+        problems.append(
+            "The tri-state listener does not send Escape before it releases "
+            "Command. The keymap property alone does not change the reports."
+        )
+
     compiled = compile_cancel_trace()
     if compiled is None:
-        got = upstream_cancel_trace()
-        if got != WANTED_CANCEL:
-            problems.append(
-                "Top-left while Cmd-Tab is held sends "
-                f"{got}. macOS needs {WANTED_CANCEL}."
-            )
+        problems.append(
+            "behaviors/swapper_cancel.c is missing, so the cancel order "
+            "Escape down, Escape up, Command up is not what the firmware plays."
+        )
         return problems
 
     lines = dict(

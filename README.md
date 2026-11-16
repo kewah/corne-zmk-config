@@ -29,7 +29,7 @@ Tap Mod/Ext. QSWAP sends Cmd+Tab and releases Cmd immediately.
 
 ## EXT
 
-Hold Mod/Ext. SWAP holds Cmd and sends Tab. TSWAP holds Ctrl and sends Tab. Tap the home-row Shift† to reverse either switcher. TMX sends Ctrl+Space. H+A sends Opt+Left. A+E sends Opt+Right.
+Hold Mod/Ext. SWAP holds Cmd and sends Tab. TSWAP holds Ctrl and sends Tab. Tap the home-row Shift† to reverse either switcher. While SWAP is active, the top-left key sends Escape and then releases Cmd, which cancels the macOS app switcher. That key still sends Cmd+grave when SWAP is idle. TMX sends Ctrl+Space. H+A sends Opt+Left. A+E sends Opt+Right.
 
 ![EXT layout](docs/layouts/ext.svg)
 

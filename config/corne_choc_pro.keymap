@@ -107,14 +107,13 @@
             retro-tap;
         };
 
-        // Cmd-Tab app switcher: holds Cmd across taps, released on
-        // interrupt (any other key or leaving EXT). Sticky Shift (pos 15)
-        // is ignored so it can reverse-cycle without dropping Cmd.
         swapper: swapper {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
             bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
             ignored-key-positions = <15>;
+            cancel-key-positions = <0>;
+            cancel-keycode = <ESC>;
         };
 
         // Ctrl-Tab tab switcher: same tri-state as swapper but holds Ctrl,
