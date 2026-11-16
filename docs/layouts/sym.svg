@@ -200,10 +200,10 @@
 <rect x="444" y="256" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
 <text x="482" y="287" fill="#f1f5f9" font-size="14">Bksp/Del</text>
 </g>
-<g data-position="43" data-binding="&amp;trans">
-<title>Position 43: &amp;trans</title>
-<rect x="612" y="256" width="76" height="50" rx="8" fill="#153e48" stroke="#4b9caa"/>
-<text x="650" y="287" fill="#a5f3fc" font-size="18">·</text>
+<g data-position="43" data-binding="&amp;kp LS(RET)">
+<title>Position 43: &amp;kp LS(RET)</title>
+<rect x="612" y="256" width="76" height="50" rx="8" fill="#243247" stroke="#52647d"/>
+<text x="650" y="287" fill="#f1f5f9" font-size="11">Shift+Enter</text>
 </g>
 <g data-position="44" data-binding="&amp;trans">
 <title>Position 44: &amp;trans</title>

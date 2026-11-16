@@ -257,7 +257,7 @@
             &none  &none        &kp CARET    &kp AMPS     &kp PIPE     &none         &trans &trans &kp TILDE    &kp AT       &kp GRAVE    &kp HASH     &kp DLLR     &none
             &trans &sk LSHFT    &sk LALT     &sk LCTRL    &sk LGUI     &sk HYPER_MOD &trans &trans &kp MINUS    &kp LPAR     &kp LT       &kp LBKT     &kp COLON    &kp LBRC
             &none  &none        &none        &none        &none        &none                      &kp UNDER    &kp RPAR     &kp GT       &kp RBKT     &kp SEMI     &kp RBRC
-                                             &trans       &trans       &backspace_delete           &trans       &trans       &trans
+                                             &trans       &trans       &backspace_delete           &kp LS(RET)  &trans       &trans
             >;
         };
 
